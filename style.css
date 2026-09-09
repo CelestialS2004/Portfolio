@@ -53,17 +53,7 @@ a:hover {
     box-shadow: 0 2px 12px #A6B794;
 }
 
-.word-one{
-    background-image: linear-gradient(to right, #5b5b5b, #A6B794);
-    color: transparent;
-    background-clip: text;
-}
 
-.word-two{
-    background-image: linear-gradient(to right, #A6B794, #5b5b5b);
-    color: transparent;
-    background-clip: text;
-}
 
 .headertitle {
     font-size: 1.7rem;
@@ -80,9 +70,9 @@ a:hover {
 
 .anchorlinks {
     color: white;
+    -webkit-text-stroke: 0.3px #A6B794;
     font-size: 1.15rem;
     transition: color 0.25s ease;
-    -webkit-text-stroke: #A6B794 0.5px;
 }
 
 .anchorlinks:hover,
