@@ -82,6 +82,7 @@ a:hover {
     color: white;
     font-size: 1.15rem;
     transition: color 0.25s ease;
+    -webkit-text-stroke: #A6B794 0.5px;
 }
 
 .anchorlinks:hover,
