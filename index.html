@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabelo's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d09fda1d27.js" crossorigin="anonymous"></script>
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="headertitle">
+            <span class="word-one">Kabelo</span>
+            <span class="word-two">Kgasago</span>
+        </h1>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#about" class="anchorlinks">About Me</a>
+            <a href="#skills" class="anchorlinks">Skills</a>
+            <a href="#projects" class="anchorlinks">Projects</a>
+            <a href="#contact" class="anchorlinks">Contact Me</a>
+            <a href="Kabelo_Kgasago_CV.pdf" class="cv-download-btn" download>Download CV</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- About Section -->
+        <section id="about" class="about-section" aria-labelledby="about-heading">
+            <h2 id="about-heading" class="About">About Me</h2>
+
+            <div class="aboutmecontainer">
+                <p class="aboutmedescription">
+                    I'm Kabelo Kgasago, an ardent Software Developer with a great passion for creating innovative solutions.
+                    I constantly seek new challenges and opportunities to expand my skill set. With a strong foundation in programming languages and a keen eye for detail, I thrive in dynamic environments where I can apply my creativity and problem-solving abilities.
+                    I specialise in general software and web development.
+                </p>
+            </div>
+        </section>
+
+        <hr class="colored-line">
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section" aria-labelledby="skills-heading">
+            <h2 id="skills-heading" class="skills">Skills</h2>
+
+            <div class="skillcontainer">
+                <div class="borderedboxes">HTML</div>
+                <div class="borderedboxes">CSS</div>
+                <div class="borderedboxes">JavaScript</div>
+                <div class="borderedboxes">Python</div>
+                <div class="borderedboxes">Java</div>
+                <div class="borderedboxes">Flask</div>
+                <div class="borderedboxes">Django</div>
+                <div class="borderedboxes">Git</div>
+                <div class="borderedboxes">Premiere Pro</div>
+                <div class="borderedboxes">After Effects</div>
+                <div class="borderedboxes">Davinci Resolve</div>
+                <div class="borderedboxes">Adobe Photoshop</div>
+                <div class="borderedboxes">Affinity</div>
+            </div>
+        </section>
+
+        <hr class="colored-line">
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="projects">Projects</h2>
+
+            <h3 class="codingprojects">Coding</h3>
+            <div class="projectscontainer">
+                <div class="project-box" data-category="coding" data-level="beginner" role="button" tabindex="0">Beginner</div>
+                <div class="project-box" data-category="coding" data-level="intermediate" role="button" tabindex="0">Intermediate</div>
+                <div class="project-box" data-category="coding" data-level="advanced" role="button" tabindex="0">Advanced</div>
+            </div>
+
+            <h3 class="editingprojects">Video Editing</h3>
+            <div class="projectscontainer">
+                <div class="project-box" data-category="editing" data-level="beginner" role="button" tabindex="0">Beginner</div>
+                <div class="project-box" data-category="editing" data-level="intermediate" role="button" tabindex="0">Intermediate</div>
+                <div class="project-box" data-category="editing" data-level="advanced" role="button" tabindex="0">Advanced</div>
+            </div>
+        </section>
+
+        <hr class="colored-line">
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+            <h2 id="contact-heading" class="contactme">Contact Me</h2>
+
+            <div class="contactcontainer">
+                <div class="emailline">
+                    <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    <a href="mailto:Kabelokgasago5@gmail.com">Kabelokgasago5@gmail.com</a>
+                </div>
+
+                <div class="numberline">
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    <a href="tel:+27815048220">081 504 8220</a>
+                </div>
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <p>Pretoria, South Africa, 0201, ZA</p>
+                </div>
+
+                <div class="bottomicons">
+                    <a href="https://github.com/CelestialS2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/itskaybee-kgasago-086b44313/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footertitle">&copy; 2026 Kabelo's Portfolio</p>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-overlay" data-close></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal" data-close>&times;</button>
+            <h2 id="modal-title" class="modal-title"></h2>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+            <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top of page">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
