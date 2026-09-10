@@ -187,11 +187,11 @@ if (inquiryForm) {
     inquiryForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const name = document.getElementById("client-name").value;
-        const email = document.getElementById("client-email").value;
+        const name = document.getElementById("client-name").value.trim();
+        const email = document.getElementById("client-email").value.trim();
         const serviceSelect = document.getElementById("service-type");
         const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
-        const details = document.getElementById("project-details").value;
+        const details = document.getElementById("project-details").value.trim();
 
         let selectedServiceSummary = `Service: ${serviceText}`;
         if (serviceSelect.value === "web-dev") {
@@ -211,14 +211,23 @@ if (inquiryForm) {
             `Best regards,\n${name}`
         );
 
-        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
+        // Detect screen width reliably
+        const isDesktop = window.innerWidth > 768;
 
         if (isDesktop) {
-            // Opens Web Gmail in a NEW TAB on Desktop
+            // Web Gmail URL for Desktop
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-            window.open(gmailUrl, '_blank');
+            
+            // Safe target opening to prevent popup blocking on deployed HTTPS (Vercel)
+            const link = document.createElement("a");
+            link.href = gmailUrl;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         } else {
-            // Native Mailto Link on Mobile (Opens default mail app)
+            // Standard Native Mailto fallback for Mobile / Tablets
             window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
         }
     });
