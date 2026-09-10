@@ -7,7 +7,10 @@
     padding: 0;
 }
 
-html {
+/* Ensure the body takes full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
     scroll-behavior: smooth;
 }
 
@@ -16,6 +19,14 @@ body {
     font-family: "Inter", Arial, sans-serif;
     color: #ffffff;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Force main content to grow and push footer down */
+main {
+    flex: 1 0 auto;
 }
 
 body.modal-open {
@@ -110,6 +121,104 @@ a:hover {
     color: #000000;
     transform: translateY(-2px);
     outline: none;
+}
+
+/* ===== Hero / Introduction Section ===== */
+.hero-section {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-greeting {
+    font-size: 1.4rem;
+    color: #A6B794;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.hero-name {
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.hero-tagline {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #b79494;
+    margin-bottom: 16px;
+}
+
+.hero-subtext {
+    font-size: 1.2rem;
+    color: #cccccc;
+    max-width: 620px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+}
+
+/* Hero CTA Buttons */
+.hero-cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta-primary-btn {
+    background-color: #A6B794;
+    color: #000000;
+    border: 2px solid #A6B794;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-primary-btn:hover {
+    background-color: #bad0a3;
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(166, 183, 148, 0.35);
+}
+
+.cta-secondary-btn {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #5b5b5b;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.cta-secondary-btn:hover {
+    border-color: #A6B794;
+    color: #A6B794;
+    transform: translateY(-3px);
 }
 
 /* ===== About Section ===== */
@@ -550,16 +659,64 @@ a:hover {
     color: #5b5b5b;
 }
 
-/* ===== Footer ===== */
+/* ===== Anchored Expandable Footer ===== */
 .footer {
     background-color: #b79494;
     padding: 25px 40px;
     text-align: center;
+    width: 100%;
+    flex-shrink: 0; /* Prevents footer from shrinking */
+    
+    /* Smooth height transition */
+    transition: margin-top 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding-top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footertitle {
-    font-size: 1.15rem;
-    color: white;
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Terms of Service container initial state */
+.tos-container {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease, 
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                visibility 0.35s ease;
+}
+
+.tos-link {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.25s ease;
+    display: inline-block;
+}
+
+.tos-link:hover {
+    color: #000000;
+}
+
+/* Hover State: Pulls top edge upward while bottom stays pinned */
+.footer:hover {
+    margin-top: -20px; /* Pulls footer top boundary UP */
+    padding-top: 35px;
+}
+
+.footer:hover .tos-container {
+    max-height: 30px;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
 }
 
 /* ===== Modal ===== */
@@ -793,6 +950,38 @@ a:hover {
     .inquiry-container {
         padding: 30px 20px;
     }
+
+    /* Responsive tweaks for mobile viewports */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 60vh;
+        padding-top: 40px;
+    }
+
+    .hero-name {
+        font-size: 2.8rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.4rem;
+    }
+
+    .hero-subtext {
+        font-size: 1.05rem;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cta-primary-btn,
+    .cta-secondary-btn {
+        justify-content: center;
+        width: 100%;
+    }
+}
 }
 
 @media (max-width: 480px) {
