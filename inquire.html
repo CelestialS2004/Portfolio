@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Inquiry - Kabelo's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d09fda1d27.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="headertitle">
+            <a href="index.html#home" class="logo-link">
+                <span class="word-one">Kabelo</span>
+                <span class="word-two">Kgasago</span>
+            </a>
+        </h1>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="index.html#about" class="anchorlinks">About Me</a>
+            <a href="index.html#skills" class="anchorlinks">Skills</a>
+            <a href="index.html#projects" class="anchorlinks">Projects</a>
+            <a href="index.html#services" class="anchorlinks">Services</a>
+            <a href="index.html#contact" class="anchorlinks">Contact Me</a>
+            <a href="Kabelo_Kgasago_CV.pdf" class="cv-download-btn" download>Download CV</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="service-detail-page">
+            <div class="service-page-header">
+                <a href="index.html#services" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Main Portfolio</a>
+                <h2 id="selected-service-title" class="selected-service-title">Service Details</h2>
+            </div>
+
+            <div id="service-options-details" class="service-options-details"></div>
+
+            <div class="inquiry-container">
+                <h3 class="inquiry-title">Inquire About This Service</h3>
+                <p class="inquiry-subtitle">Fill in your requirements below to generate a formatted email inquiry directly to me.</p>
+
+                <form id="service-inquiry-form" class="inquiry-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-name">Your Name *</label>
+                            <input type="text" id="client-name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="client-email">Email Address *</label>
+                            <input type="email" id="client-email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service-type">Selected Service *</label>
+                        <select id="service-type" required>
+                            <option value="web-dev">Web Development</option>
+                            <option value="video-editing">Video Editing</option>
+                            <option value="photo-editing">Photo Editing</option>
+                            <option value="motion-graphics">Motion Graphics</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group hidden" id="web-options-group">
+                        <label for="web-type">Web Development Architecture Option *</label>
+                        <select id="web-type">
+                            <option value="frontend">Front-End Only (HTML / CSS / JavaScript) — From R1,500</option>
+                            <option value="backend">Back-End Only (Python / Flask / Django) — From R2,500</option>
+                            <option value="fullstack">Full-Stack Application (Front-End + Back-End) — From R4,000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-details">Project Details & Requirements</label>
+                        <textarea id="project-details" rows="5" placeholder="Tell me about your project scope, deliverables, and preferred timeline..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry via Email</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footertitle">&copy; 2026 Kabelo's Portfolio</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
