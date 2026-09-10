@@ -1,4 +1,16 @@
-/* ===== General ===== */
+/* ===== General & Variables ===== */
+:root {
+    --bg-dark: #000000;
+    --surface-dark: #0d0d0d;
+    --card-bg: #141414;
+    --border-subtle: #2a2a2a;
+    --border-active: #A6B794;
+    --accent-primary: #A6B794;
+    --accent-hover: #C2D4AD;
+    --text-primary: #ffffff;
+    --text-muted: #cccccc;
+}
+
 *,
 *::before,
 *::after {
@@ -7,11 +19,9 @@
     padding: 0;
 }
 
-/* Ensure the body takes full viewport height */
-html, body {
-    height: 100%;
-    margin: 0;
+html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
@@ -24,13 +34,12 @@ body {
     min-height: 100vh;
 }
 
-/* Force main content to grow and push footer down */
-main {
-    flex: 1 0 auto;
-}
-
 body.modal-open {
     overflow: hidden;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 a {
@@ -39,16 +48,15 @@ a {
 }
 
 a:hover {
-    color: #5b5b5b;
+    color: #cccccc;
 }
 
 .colored-line {
     margin: 110px auto;
     border: none;
-    height: 2px;
-    background-color: #5b5b5b;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
     width: 80%;
-    border-radius: 2px;
 }
 
 /* Page View Visibility Controller */
@@ -56,28 +64,31 @@ a:hover {
     display: none !important;
 }
 
-/* ===== Header ===== */
+/* ===== Header (Glassmorphism Dark) ===== */
 .header {
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b79494;
+    background-color: #0d0d0dd9;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #2a2a2a;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px #A6B794;
+    box-shadow: 0 4px 20px #00000080;
 }
 
 .headertitle {
     font-size: 1.7rem;
-    color: white;
+    color: #ffffff;
     line-height: 1;
     margin: 0;
 }
 
 .logo-link {
-    color: white;
+    color: #ffffff;
     transition: opacity 0.25s ease;
 }
 
@@ -92,15 +103,14 @@ a:hover {
 }
 
 .anchorlinks {
-    color: white;
-    -webkit-text-stroke: 0.3px #A6B794;
+    color: #ffffff;
     font-size: 1.15rem;
     transition: color 0.25s ease;
 }
 
 .anchorlinks:hover,
 .anchorlinks:focus-visible {
-    color: #5b5b5b;
+    color: #A6B794;
 }
 
 /* CV Download Button */
@@ -160,7 +170,7 @@ a:hover {
 .hero-tagline {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #b79494;
+    color: #cccccc;
     margin-bottom: 16px;
 }
 
@@ -172,7 +182,6 @@ a:hover {
     line-height: 1.6;
 }
 
-/* Hero CTA Buttons */
 .hero-cta-buttons {
     display: flex;
     gap: 20px;
@@ -195,16 +204,17 @@ a:hover {
 }
 
 .cta-primary-btn:hover {
-    background-color: #bad0a3;
+    background-color: #C2D4AD;
+    border-color: #C2D4AD;
     color: #000000;
     transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(166, 183, 148, 0.35);
+    box-shadow: 0 6px 20px #a6b79459;
 }
 
 .cta-secondary-btn {
     background-color: transparent;
     color: #ffffff;
-    border: 2px solid #5b5b5b;
+    border: 2px solid #2a2a2a;
     padding: 14px 28px;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -235,21 +245,23 @@ a:hover {
 .aboutmecontainer {
     max-width: 800px;
     margin: 0 auto 80px;
-    border: 4px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     padding: 55px 50px;
     border-radius: 12px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .aboutmecontainer:hover {
     border-color: #A6B794;
-    box-shadow: 0 1px 10px #A6B794;
+    box-shadow: 0 6px 20px #a6b79473;
 }
 
 .aboutmedescription {
     text-align: center;
     font-size: 1.35rem;
     line-height: 1.7;
+    color: #cccccc;
 }
 
 /* ===== Skills Section ===== */
@@ -277,17 +289,18 @@ a:hover {
     justify-content: center;
     align-items: center;
     height: 120px;
-    border: 2px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     border-radius: 10px;
     font-size: 1.35rem;
-    transition: border-color 0.3s ease, transform 0.2s ease;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     cursor: default;
 }
 
 .borderedboxes:hover {
     border-color: #A6B794;
     transform: translateY(-4px);
-    box-shadow: 0 1px 10px #A6B794;
+    box-shadow: 0 6px 20px #a6b79473;
 }
 
 /* ===== Projects Section ===== */
@@ -322,10 +335,11 @@ a:hover {
     justify-content: center;
     align-items: center;
     height: 120px;
-    border: 2px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     border-radius: 10px;
     font-size: 1.35rem;
-    transition: border-color 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     cursor: pointer;
     user-select: none;
 }
@@ -335,7 +349,7 @@ a:hover {
     border-color: #A6B794;
     transform: translateY(-4px);
     outline: none;
-    box-shadow: 0 1px 10px #A6B794;
+    box-shadow: 0 6px 20px #a6b79473;
 }
 
 .project-box:active {
@@ -371,14 +385,14 @@ a:hover {
 }
 
 .service-card {
-    border: 2px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     border-radius: 12px;
     padding: 30px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #080808;
     transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     cursor: pointer;
     user-select: none;
@@ -387,7 +401,7 @@ a:hover {
 .service-card:hover {
     border-color: #A6B794;
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(166, 183, 148, 0.25);
+    box-shadow: 0 6px 20px #a6b79459;
 }
 
 .service-icon {
@@ -412,7 +426,7 @@ a:hover {
 .service-action-btn {
     margin-top: auto;
     padding-top: 15px;
-    border-top: 1px solid #333;
+    border-top: 1px solid #2a2a2a;
     width: 100%;
     color: #A6B794;
     font-weight: 600;
@@ -428,15 +442,15 @@ a:hover {
     gap: 14px;
 }
 
-/* ===== SEPARATE DEDICATED SERVICE PAGE VIEW ===== */
+/* ===== SEPARATE DEDICATED SERVICE & TERMS PAGE VIEW ===== */
 .service-detail-page {
     max-width: 1000px;
     margin: 60px auto 100px;
     padding: 40px;
-    background-color: #080808;
-    border: 3px solid #A6B794;
+    background-color: #0d0d0d;
+    border: 1px solid #A6B794;
     border-radius: 14px;
-    box-shadow: 0 4px 30px rgba(166, 183, 148, 0.25);
+    box-shadow: 0 6px 25px #a6b79426;
 }
 
 .service-page-header {
@@ -445,7 +459,7 @@ a:hover {
     align-items: flex-start;
     gap: 18px;
     margin-bottom: 35px;
-    border-bottom: 2px solid #333;
+    border-bottom: 1px solid #2a2a2a;
     padding-bottom: 25px;
 }
 
@@ -487,10 +501,10 @@ a:hover {
 }
 
 .option-box {
-    border: 2px solid #5b5b5b;
+    border: 1px solid #2a2a2a;
     border-radius: 10px;
     padding: 24px;
-    background-color: #111111;
+    background-color: #141414;
     transition: border-color 0.25s ease;
 }
 
@@ -519,7 +533,8 @@ a:hover {
 
 /* Dedicated Form Styles */
 .inquiry-container {
-    border: 4px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     padding: 45px 40px;
     border-radius: 12px;
     transition: border-color 0.3s ease;
@@ -574,8 +589,8 @@ a:hover {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    background-color: #111111;
-    border: 2px solid #5b5b5b;
+    background-color: #0d0d0d;
+    border: 1px solid #2a2a2a;
     color: #ffffff;
     padding: 12px 14px;
     border-radius: 8px;
@@ -624,19 +639,20 @@ a:hover {
 .contactcontainer {
     max-width: 700px;
     margin: 0 auto 80px;
-    border: 4px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     padding: 60px 50px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contactcontainer:hover {
     border-color: #A6B794;
-    box-shadow: 0 1px 10px #A6B794;
+    box-shadow: 0 6px 20px #a6b79473;
 }
 
 .emailline,
@@ -656,18 +672,17 @@ a:hover {
 }
 
 .bottomicons a:hover {
-    color: #5b5b5b;
+    color: #A6B794;
 }
 
 /* ===== Anchored Expandable Footer ===== */
 .footer {
-    background-color: #b79494;
+    background-color: #0d0d0d;
+    border-top: 1px solid #2a2a2a;
     padding: 25px 40px;
     text-align: center;
     width: 100%;
-    flex-shrink: 0; /* Prevents footer from shrinking */
-    
-    /* Smooth height transition */
+    flex-shrink: 0;
     transition: margin-top 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
                 padding-top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -680,7 +695,11 @@ a:hover {
     gap: 8px;
 }
 
-/* Terms of Service container initial state */
+.footertitle {
+    font-size: 1.15rem;
+    color: #cccccc;
+}
+
 .tos-container {
     max-height: 0;
     opacity: 0;
@@ -694,7 +713,7 @@ a:hover {
 }
 
 .tos-link {
-    color: #ffffff;
+    color: #A6B794;
     font-size: 0.95rem;
     font-weight: 500;
     text-decoration: underline;
@@ -703,12 +722,11 @@ a:hover {
 }
 
 .tos-link:hover {
-    color: #000000;
+    color: #C2D4AD;
 }
 
-/* Hover State: Pulls top edge upward while bottom stays pinned */
 .footer:hover {
-    margin-top: -20px; /* Pulls footer top boundary UP */
+    margin-top: -20px;
     padding-top: 35px;
 }
 
@@ -740,15 +758,15 @@ a:hover {
 .modal-overlay {
     position: absolute;
     inset: 0;
-    background: #0000008c;
+    background: #000000bf;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
 .modal-content {
     position: relative;
-    background: linear-gradient(160deg, #121212, #0a0a0a);
-    border: 2px solid #A6B794;
+    background: #0d0d0d;
+    border: 1px solid #A6B794;
     border-radius: 14px;
     padding: 36px 32px 32px;
     max-width: 640px;
@@ -756,7 +774,7 @@ a:hover {
     max-height: 80vh;
     overflow-y: auto;
     z-index: 1;
-    box-shadow: 0 1px 10px #A6B794;
+    box-shadow: 0 0 14px #a6b79466;
     transform: scale(0.92) translateY(20px);
     transition: transform 0.3s ease;
 }
@@ -800,7 +818,8 @@ a:hover {
 }
 
 .project-card {
-    border: 2px solid #5b5b5b;
+    background-color: #141414;
+    border: 1px solid #2a2a2a;
     border-radius: 10px;
     padding: 18px 20px;
     transition: border-color 0.25s ease, transform 0.2s ease;
@@ -831,7 +850,7 @@ a:hover {
 
 .no-projects {
     text-align: center;
-    color: #aaaaaa;
+    color: #cccccc;
     font-size: 1.15rem;
     padding: 20px 0;
 }
@@ -842,7 +861,7 @@ a:hover {
     bottom: 30px;
     right: 30px;
     z-index: 99;
-    background-color: #111111;
+    background-color: #0d0d0d;
     color: #A6B794;
     border: 2px solid #A6B794;
     border-radius: 50%;
@@ -856,7 +875,7 @@ a:hover {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px #00000080;
 }
 
 .scroll-top-btn.active {
@@ -868,13 +887,10 @@ a:hover {
     background-color: #A6B794;
     color: #000000;
     transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(166, 183, 148, 0.4);
+    box-shadow: 0 6px 20px #a6b79466;
 }
 
-/* =========================================================
-   Mobile / Phone Usage & Responsive Breakpoints
-   ========================================================= */
-
+/* ===== Responsive Breakpoints ===== */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -890,6 +906,35 @@ a:hover {
 
     .headertitle {
         font-size: 1.5rem;
+    }
+
+    .hero-section {
+        min-height: 60vh;
+        padding-top: 40px;
+    }
+
+    .hero-name {
+        font-size: 2.8rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.4rem;
+    }
+
+    .hero-subtext {
+        font-size: 1.05rem;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cta-primary-btn,
+    .cta-secondary-btn {
+        justify-content: center;
+        width: 100%;
     }
 
     .About,
@@ -932,7 +977,6 @@ a:hover {
     .service-detail-page {
         margin: 30px 15px 60px;
         padding: 24px 18px;
-        border-width: 2px;
     }
 
     .selected-service-title {
@@ -950,38 +994,6 @@ a:hover {
     .inquiry-container {
         padding: 30px 20px;
     }
-
-    /* Responsive tweaks for mobile viewports */
-@media (max-width: 768px) {
-    .hero-section {
-        min-height: 60vh;
-        padding-top: 40px;
-    }
-
-    .hero-name {
-        font-size: 2.8rem;
-    }
-
-    .hero-tagline {
-        font-size: 1.4rem;
-    }
-
-    .hero-subtext {
-        font-size: 1.05rem;
-    }
-
-    .hero-cta-buttons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .cta-primary-btn,
-    .cta-secondary-btn {
-        justify-content: center;
-        width: 100%;
-    }
-}
 }
 
 @media (max-width: 480px) {
