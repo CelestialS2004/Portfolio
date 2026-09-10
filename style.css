@@ -40,6 +40,11 @@ a:hover {
     border-radius: 2px;
 }
 
+/* Page View Visibility Controller */
+.view-page.hidden {
+    display: none !important;
+}
+
 /* ===== Header ===== */
 .header {
     padding: 20px 40px;
@@ -53,13 +58,20 @@ a:hover {
     box-shadow: 0 2px 12px #A6B794;
 }
 
-
-
 .headertitle {
     font-size: 1.7rem;
     color: white;
     line-height: 1;
     margin: 0;
+}
+
+.logo-link {
+    color: white;
+    transition: opacity 0.25s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.85;
 }
 
 .nav-links {
@@ -80,7 +92,7 @@ a:hover {
     color: #5b5b5b;
 }
 
-/* ===== CV Download Button in Nav ===== */
+/* CV Download Button */
 .cv-download-btn {
     background-color: transparent;
     color: #A6B794;
@@ -219,6 +231,274 @@ a:hover {
 
 .project-box:active {
     transform: translateY(-1px);
+}
+
+/* ===== Services Section & Cards ===== */
+.services {
+    font-size: 3rem;
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+#services {
+    scroll-margin-top: 100px;
+}
+
+.services-intro {
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    padding: 0 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.service-card {
+    border: 2px solid #5b5b5b;
+    border-radius: 12px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #080808;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.service-card:hover {
+    border-color: #A6B794;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(166, 183, 148, 0.25);
+}
+
+.service-icon {
+    font-size: 2.2rem;
+    color: #A6B794;
+    margin-bottom: 16px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.service-desc {
+    font-size: 0.98rem;
+    color: #cccccc;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.service-action-btn {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    width: 100%;
+    color: #A6B794;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: gap 0.25s ease;
+}
+
+.service-card:hover .service-action-btn {
+    gap: 14px;
+}
+
+/* ===== SEPARATE DEDICATED SERVICE PAGE VIEW ===== */
+.service-detail-page {
+    max-width: 1000px;
+    margin: 60px auto 100px;
+    padding: 40px;
+    background-color: #080808;
+    border: 3px solid #A6B794;
+    border-radius: 14px;
+    box-shadow: 0 4px 30px rgba(166, 183, 148, 0.25);
+}
+
+.service-page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 35px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 25px;
+}
+
+.back-btn {
+    background: transparent;
+    color: #A6B794;
+    border: 2px solid #A6B794;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: #A6B794;
+    color: #000000;
+    transform: translateX(-4px);
+}
+
+.selected-service-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.service-options-details {
+    margin-bottom: 50px;
+}
+
+.option-box-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.option-box {
+    border: 2px solid #5b5b5b;
+    border-radius: 10px;
+    padding: 24px;
+    background-color: #111111;
+    transition: border-color 0.25s ease;
+}
+
+.option-box:hover {
+    border-color: #A6B794;
+}
+
+.option-box h4 {
+    color: #A6B794;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.option-box p {
+    font-size: 0.98rem;
+    color: #cccccc;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.option-price {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.15rem;
+}
+
+/* Dedicated Form Styles */
+.inquiry-container {
+    border: 4px solid #5b5b5b;
+    padding: 45px 40px;
+    border-radius: 12px;
+    transition: border-color 0.3s ease;
+}
+
+.inquiry-container:hover {
+    border-color: #A6B794;
+}
+
+.inquiry-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #A6B794;
+}
+
+.inquiry-subtitle {
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.hidden {
+    display: none !important;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: #111111;
+    border: 2px solid #5b5b5b;
+    color: #ffffff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.25s ease, outline 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #A6B794;
+    outline: none;
+}
+
+.submit-btn {
+    background-color: transparent;
+    color: #A6B794;
+    border: 2px solid #A6B794;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #A6B794;
+    color: #000000;
+    transform: translateY(-2px);
 }
 
 /* ===== Contact Section ===== */
@@ -434,7 +714,10 @@ a:hover {
     box-shadow: 0 6px 20px rgba(166, 183, 148, 0.4);
 }
 
-/* ===== Responsive ===== */
+/* =========================================================
+   Mobile / Phone Usage & Responsive Breakpoints
+   ========================================================= */
+
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -442,7 +725,6 @@ a:hover {
         padding: 18px 20px;
     }
 
-    
     .nav-links {
         gap: 18px;
         flex-wrap: wrap;
@@ -456,9 +738,10 @@ a:hover {
     .About,
     .skills,
     .projects,
+    .services,
     .contactme {
         font-size: 2.3rem;
-        margin: 140px 0 50px;
+        margin: 100px 0 40px;
     }
 
     .aboutmecontainer,
@@ -489,12 +772,26 @@ a:hover {
         font-size: 1.8rem;
     }
 
-    .modal-content {
-        padding: 28px 20px 24px;
+    .service-detail-page {
+        margin: 30px 15px 60px;
+        padding: 24px 18px;
+        border-width: 2px;
     }
 
-    .modal-title {
-        font-size: 1.55rem;
+    .selected-service-title {
+        font-size: 1.8rem;
+    }
+
+    .option-box-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .inquiry-container {
+        padding: 30px 20px;
     }
 }
 
@@ -510,19 +807,33 @@ a:hover {
     .About,
     .skills,
     .projects,
+    .services,
     .contactme {
         font-size: 2rem;
     }
 
-    .modal-title {
-        font-size: 1.35rem;
+    .service-detail-page {
+        padding: 18px 14px;
+        margin-top: 20px;
     }
 
-    .project-card h3 {
-        font-size: 1.1rem;
+    .selected-service-title {
+        font-size: 1.5rem;
     }
 
-    .project-card p {
-        font-size: 0.98rem;
+    .back-btn {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    .inquiry-container {
+        padding: 20px 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
     }
 }
