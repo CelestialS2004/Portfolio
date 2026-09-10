@@ -112,7 +112,7 @@ const serviceDetailsData = {
     }
 };
 
-// Index Page Card Clicks - Navigates to Inquiry Page in the SAME tab
+// Index Page Card Clicks - Navigates in SAME TAB
 const serviceCards = document.querySelectorAll("[data-open-service]");
 serviceCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -181,17 +181,17 @@ if (window.location.pathname.includes("inquire.html")) {
     }
 }
 
-// Form Submission Handler
+// Form Submission Handler - Opens Gmail in NEW TAB on Desktop
 const inquiryForm = document.getElementById("service-inquiry-form");
 if (inquiryForm) {
     inquiryForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const name = document.getElementById("client-name").value.trim();
-        const email = document.getElementById("client-email").value.trim();
+        const name = document.getElementById("client-name").value;
+        const email = document.getElementById("client-email").value;
         const serviceSelect = document.getElementById("service-type");
         const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
-        const details = document.getElementById("project-details").value.trim();
+        const details = document.getElementById("project-details").value;
 
         let selectedServiceSummary = `Service: ${serviceText}`;
         if (serviceSelect.value === "web-dev") {
@@ -211,29 +211,18 @@ if (inquiryForm) {
             `Best regards,\n${name}`
         );
 
-        // Detect screen width reliably
-        const isDesktop = window.innerWidth > 768;
+        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
 
         if (isDesktop) {
-            // Web Gmail URL for Desktop
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-            
-            // Safe target opening to prevent popup blocking on deployed HTTPS (Vercel)
-            const link = document.createElement("a");
-            link.href = gmailUrl;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            window.open(gmailUrl, '_blank');
         } else {
-            // Standard Native Mailto fallback for Mobile / Tablets
             window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
         }
     });
 }
 
-// Contact Section Email Handler - Opens Web Gmail in a NEW TAB on Desktop
+// Contact Section Email Handler - Opens Gmail in NEW TAB on Desktop
 const desktopEmailLink = document.getElementById("desktop-email-link");
 if (desktopEmailLink) {
     desktopEmailLink.addEventListener("click", (e) => {
