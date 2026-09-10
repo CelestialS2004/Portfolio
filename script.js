@@ -211,16 +211,29 @@ if (inquiryForm) {
             `Best regards,\n${name}`
         );
 
-        // Check if user is on Desktop (width > 768px and non-touch)
         const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
 
         if (isDesktop) {
-            // Direct Web-based Gmail Compose URL for Desktop
+            // Opens Web Gmail in a NEW TAB on Desktop
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-            window.location.href = gmailUrl;
+            window.open(gmailUrl, '_blank');
         } else {
-            // Native Mailto Link for Mobile Apps
+            // Native Mailto Link on Mobile (Opens default mail app)
             window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        }
+    });
+}
+
+// Contact Section Email Handler - Opens Web Gmail in a NEW TAB on Desktop
+const desktopEmailLink = document.getElementById("desktop-email-link");
+if (desktopEmailLink) {
+    desktopEmailLink.addEventListener("click", (e) => {
+        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
+        if (isDesktop) {
+            e.preventDefault();
+            const recipient = "Kabelokgasago5@gmail.com";
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}`;
+            window.open(gmailUrl, '_blank');
         }
     });
 }
@@ -303,18 +316,5 @@ if (scrollTopBtn) {
 
     scrollTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-// Contact Section Email Handler - Force Web Gmail on Desktop
-const desktopEmailLink = document.getElementById("desktop-email-link");
-if (desktopEmailLink) {
-    desktopEmailLink.addEventListener("click", (e) => {
-        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
-        if (isDesktop) {
-            e.preventDefault();
-            const recipient = "Kabelokgasago5@gmail.com";
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}`;
-            window.location.href = gmailUrl;
-        }
     });
 }
