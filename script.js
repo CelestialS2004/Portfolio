@@ -112,143 +112,84 @@ const serviceDetailsData = {
     }
 };
 
-// DOM Elements
-const homeView = document.getElementById("home-view");
-const servicePageView = document.getElementById("service-page-view");
+// Index Page Card Clicks - Navigates to Inquiry Page in the SAME tab
 const serviceCards = document.querySelectorAll("[data-open-service]");
-const backToHomeBtn = document.getElementById("back-to-home");
-const navLogo = document.getElementById("nav-logo");
-const navHomeLinks = document.querySelectorAll(".nav-home-link");
-const selectedServiceTitle = document.getElementById("selected-service-title");
-const serviceOptionsDetails = document.getElementById("service-options-details");
-const serviceSelect = document.getElementById("service-type");
-const webOptionsGroup = document.getElementById("web-options-group");
-const inquiryForm = document.getElementById("service-inquiry-form");
-
-const modal = document.getElementById("project-modal");
-const modalTitle = document.getElementById("modal-title");
-const modalBody = document.getElementById("modal-body");
-const projectBoxes = document.querySelectorAll(".project-box");
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-// ===== SPA Page View Switcher Functions =====
-
-// Switch view from Home to dedicated Service Page
-function showServicePage(serviceKey) {
-    const data = serviceDetailsData[serviceKey];
-    if (!data) return;
-
-    // Render Option Cards dynamically
-    selectedServiceTitle.textContent = data.title;
-    let optionsHTML = `<p class="inquiry-subtitle">${data.description}</p><div class="option-box-grid">`;
-    data.options.forEach(opt => {
-        optionsHTML += `
-            <div class="option-box">
-                <h4>${opt.name}</h4>
-                <p>${opt.desc}</p>
-                <div class="option-price">${opt.price}</div>
-            </div>
-        `;
-    });
-    optionsHTML += `</div>`;
-    serviceOptionsDetails.innerHTML = optionsHTML;
-
-    // Sync Form Inputs
-    if (serviceSelect) {
-        serviceSelect.value = serviceKey;
-        if (serviceKey === "web-dev") {
-            webOptionsGroup.classList.remove("hidden");
-        } else {
-            webOptionsGroup.classList.add("hidden");
-        }
-    }
-
-    // Hide Home view, reveal Service page view
-    homeView.classList.add("hidden");
-    homeView.classList.remove("active-view");
-
-    servicePageView.classList.remove("hidden");
-    servicePageView.classList.add("active-view");
-    servicePageView.setAttribute("aria-hidden", "false");
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-// Switch view back to Home Page Landing View
-function showHomePage(targetSectionId = null) {
-    servicePageView.classList.add("hidden");
-    servicePageView.classList.remove("active-view");
-    servicePageView.setAttribute("aria-hidden", "true");
-
-    homeView.classList.remove("hidden");
-    homeView.classList.add("active-view");
-
-    if (targetSectionId) {
-        const targetElement = document.getElementById(targetSectionId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-            return;
-        }
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-// Attach card click handlers
 serviceCards.forEach(card => {
     card.addEventListener("click", () => {
         const key = card.getAttribute("data-open-service");
-        showServicePage(key);
+        window.location.href = `inquire.html?service=${key}`;
     });
 
     card.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             const key = card.getAttribute("data-open-service");
-            showServicePage(key);
+            window.location.href = `inquire.html?service=${key}`;
         }
     });
 });
 
-// Back to Home button handler
-if (backToHomeBtn) {
-    backToHomeBtn.addEventListener("click", () => {
-        showHomePage("services");
-    });
-}
+// Inquire Page Logic Execution
+if (window.location.pathname.includes("inquire.html")) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceKey = urlParams.get("service") || "web-dev";
 
-// Logo click returns home
-if (navLogo) {
-    navLogo.addEventListener("click", (e) => {
-        e.preventDefault();
-        showHomePage();
-    });
-}
+    const titleEl = document.getElementById("selected-service-title");
+    const detailsContainer = document.getElementById("service-options-details");
+    const serviceSelect = document.getElementById("service-type");
+    const webOptionsGroup = document.getElementById("web-options-group");
 
-// Navigation links return home and scroll to section
-navHomeLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href").replace("#", "");
-        showHomePage(targetId);
-    });
-});
+    function renderService(key) {
+        const data = serviceDetailsData[key];
+        if (!data) return;
 
-// Dropdown change listener inside form
-if (serviceSelect) {
-    serviceSelect.addEventListener("change", (e) => {
-        const newKey = e.target.value;
-        if (serviceDetailsData[newKey]) {
-            showServicePage(newKey);
+        if (titleEl) titleEl.textContent = data.title;
+
+        if (detailsContainer) {
+            let optionsHTML = `<p class="inquiry-subtitle">${data.description}</p><div class="option-box-grid">`;
+            data.options.forEach(opt => {
+                optionsHTML += `
+                    <div class="option-box">
+                        <h4>${opt.name}</h4>
+                        <p>${opt.desc}</p>
+                        <div class="option-price">${opt.price}</div>
+                    </div>
+                `;
+            });
+            optionsHTML += `</div>`;
+            detailsContainer.innerHTML = optionsHTML;
         }
-    });
+
+        if (serviceSelect) {
+            serviceSelect.value = key;
+            if (webOptionsGroup) {
+                if (key === "web-dev") {
+                    webOptionsGroup.classList.remove("hidden");
+                } else {
+                    webOptionsGroup.classList.add("hidden");
+                }
+            }
+        }
+    }
+
+    renderService(serviceKey);
+
+    if (serviceSelect) {
+        serviceSelect.addEventListener("change", (e) => {
+            renderService(e.target.value);
+        });
+    }
 }
 
 // Form Submission Handler
+const inquiryForm = document.getElementById("service-inquiry-form");
 if (inquiryForm) {
     inquiryForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
         const name = document.getElementById("client-name").value;
         const email = document.getElementById("client-email").value;
+        const serviceSelect = document.getElementById("service-type");
         const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
         const details = document.getElementById("project-details").value;
 
@@ -259,6 +200,7 @@ if (inquiryForm) {
             selectedServiceSummary += ` (${webOptionText})`;
         }
 
+        const recipient = "Kabelokgasago5@gmail.com";
         const subject = encodeURIComponent(`Service Inquiry from ${name}`);
         const body = encodeURIComponent(
             `Hi Kabelo,\n\nI would like to inquire about your services.\n\n` +
@@ -269,12 +211,28 @@ if (inquiryForm) {
             `Best regards,\n${name}`
         );
 
-        window.location.href = `mailto:Kabelokgasago5@gmail.com?subject=${subject}&body=${body}`;
+        // Check if user is on Desktop (width > 768px and non-touch)
+        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
+
+        if (isDesktop) {
+            // Direct Web-based Gmail Compose URL for Desktop
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
+            window.location.href = gmailUrl;
+        } else {
+            // Native Mailto Link for Mobile Apps
+            window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        }
     });
 }
 
 // ===== Modal Logic =====
+const modal = document.getElementById("project-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalBody = document.getElementById("modal-body");
+const projectBoxes = document.querySelectorAll(".project-box");
+
 function openModal(category, level) {
+    if (!modal) return;
     const titleMap = { coding: "Coding", editing: "Video Editing" };
     const levelTitle = level.charAt(0).toUpperCase() + level.slice(1);
     modalTitle.textContent = `${titleMap[category]} – ${levelTitle} Projects`;
@@ -303,6 +261,7 @@ function openModal(category, level) {
 }
 
 function closeModal() {
+    if (!modal) return;
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
@@ -321,23 +280,41 @@ projectBoxes.forEach(box => {
     });
 });
 
-modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeModal));
+if (modal) {
+    modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeModal));
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-    }
-});
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+        }
+    });
+}
 
 // Scroll to Top Button
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add("active");
-    } else {
-        scrollTopBtn.classList.remove("active");
-    }
-});
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+if (scrollTopBtn) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add("active");
+        } else {
+            scrollTopBtn.classList.remove("active");
+        }
+    });
 
-scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+    scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+// Contact Section Email Handler - Force Web Gmail on Desktop
+const desktopEmailLink = document.getElementById("desktop-email-link");
+if (desktopEmailLink) {
+    desktopEmailLink.addEventListener("click", (e) => {
+        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
+        if (isDesktop) {
+            e.preventDefault();
+            const recipient = "Kabelokgasago5@gmail.com";
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}`;
+            window.location.href = gmailUrl;
+        }
+    });
+}
