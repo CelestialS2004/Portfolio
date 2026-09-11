@@ -1,69 +1,361 @@
-.skills {
-    font-size: 3rem;
-    text-align: center;
-    margin: 60px 0 10px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabelo's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d09fda1d27.js" crossorigin="anonymous"></script>
+</head>
 
-#skills {
-    scroll-margin-top: 100px;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-.skill-category-title {
-    max-width: 1100px;
-    margin: 40px auto 20px;
-    padding: 0 20px;
-    font-size: 1.35rem;
-    color: #A6B794;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+<body>
 
-.skillcontainer {
-    display: grid;
-    /* Increased min-width from 170px to 190px so longer text fits naturally */
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto 30px;
-    padding: 0 20px;
-}
+    <!-- Header -->
+    <header class="header">
+        <h1 class="headertitle">
+            <a href="#home" id="nav-logo" class="logo-link">
+                <span class="word-one">Kabelo</span>
+                <span class="word-two">Kgasago</span>
+            </a>
+        </h1>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#about" class="anchorlinks nav-home-link">About Me</a>
+            <a href="#skills" class="anchorlinks nav-home-link">Skills</a>
+            <a href="#projects" class="anchorlinks nav-home-link">Projects</a>
+            <a href="#services" class="anchorlinks nav-home-link">Services</a>
+            <a href="#contact" class="anchorlinks nav-home-link">Contact Me</a>
+        </nav>
+    </header>
 
-.borderedboxes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    height: 78px; /* Slightly increased height for better visual proportion */
-    padding: 0 16px; /* Added internal padding so text never touches card edges */
-    background: linear-gradient(145deg, #141414, #0f0f0f);
-    border: 1px solid #262626;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #e0e0e0;
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: default;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    white-space: nowrap; /* Prevents text from awkwardly wrapping */
-}
+    <main>
 
-.borderedboxes i {
-    font-size: 1.25rem;
-    color: #888888;
-    transition: color 0.25s ease, transform 0.25s ease;
-    flex-shrink: 0; /* Prevents icon from shrinking on tighter screens */
-}
+        <!-- Home Landing View (Contains Home Sections) -->
+<div id="home-view" class="view-page active-view">
 
-.borderedboxes:hover {
-    border-color: #A6B794;
-    color: #ffffff;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(166, 183, 148, 0.2);
-}
+    <!-- Hero / Intro Section -->
+    <section id="hero" class="hero-section" aria-label="Hero Introduction">
+        <div class="hero-content">
+            <span class="hero-greeting">Hi, I'm</span>
+            <h1 class="hero-name">Kabelo Kgasago</h1>
+            <p class="hero-tagline">Software Developer & Visual Content Creator</p>
+            <p class="hero-subtext">Specialising in general software, full-stack web development, and digital media editing.</p>
+            
+            <div class="hero-cta-buttons">
+                <a href="#projects" class="cta-primary-btn">View My Work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                <button id="open-cv-modal-btn" class="cta-primary-btn">Download CV <i class="fa-solid fa-download" aria-hidden="true"></i></button>
+                <a href="inquire.html?service=web-dev" class="cta-secondary-btn">Inquire Services <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
 
-.borderedboxes:hover i {
-    color: #A6B794;
-    transform: scale(1.15);
-}
+    <hr class="colored-line">
+
+    <!-- About Section -->
+    <section id="about" class="about-section" aria-labelledby="about-heading">
+
+        <!-- Home Landing View (Contains Home Sections) -->
+        <div id="home-view" class="view-page active-view">
+
+            <!-- About Section -->
+            <section id="about" class="about-section" aria-labelledby="about-heading">
+                <h2 id="about-heading" class="About">About Me</h2>
+                <div class="aboutmecontainer">
+                    <p class="aboutmedescription">
+                        I'm Kabelo Kgasago, an ardent Software Developer with a great passion for creating innovative solutions.
+                        I constantly seek new challenges and opportunities to expand my skill set. With a strong foundation in programming languages and a keen eye for detail, I thrive in dynamic environments where I can apply my creativity and problem-solving abilities.
+                        I specialise in general software and web development.
+                    </p>
+                </div>
+            </section>
+
+            <hr class="colored-line">
+
+            <!-- Skills Section -->
+<section id="skills" class="skills-section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading" class="skills">Skills & Technologies</h2>
+    <p class="services-intro">Technical stack, frameworks, and creative digital media software I work with.</p>
+
+    <!-- Coding & Development Skills -->
+    <h3 class="skill-category-title"><i class="fa-solid fa-code"></i> Software Development</h3>
+    <div class="skillcontainer">
+        <div class="borderedboxes"><i class="fa-brands fa-html5"></i> HTML5</div>
+        <div class="borderedboxes"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+        <div class="borderedboxes"><i class="fa-brands fa-js"></i> JavaScript</div>
+        <div class="borderedboxes"><i class="fa-brands fa-python"></i> Python</div>
+        <div class="borderedboxes"><i class="fa-brands fa-java"></i> Java</div>
+        <div class="borderedboxes"><i class="fa-brands fa-php"></i> PHP</div>
+        <div class="borderedboxes"><i class="fa-solid fa-cubes"></i> Flask</div>
+        <div class="borderedboxes"><i class="fa-solid fa-layer-group"></i> Django</div>
+        <div class="borderedboxes"><i class="fa-brands fa-git-alt"></i> Git</div>
+    </div>
+
+    <!-- Media & Creative Software -->
+    <h3 class="skill-category-title"><i class="fa-solid fa-photo-film"></i> Creative & Media Production</h3>
+    <div class="skillcontainer">
+        <div class="borderedboxes"><i class="fa-solid fa-video"></i> Premiere Pro</div>
+        <div class="borderedboxes"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</div>
+        <div class="borderedboxes"><i class="fa-solid fa-film"></i> DaVinci Resolve</div>
+        <div class="borderedboxes"><i class="fa-solid fa-image"></i> Adobe Photoshop</div>
+        <div class="borderedboxes"><i class="fa-solid fa-pen-nib"></i> Affinity</div>
+    </div>
+</section>
+
+            <hr class="colored-line">
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading" class="projects">Projects</h2>
+    <p class="services-intro">Click on any category below to explore featured work and deliverables.</p>
+
+    <div class="projectscontainer">
+        <div class="project-box" data-category="coding" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Development</span>
+                <i class="fa-solid fa-code project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Coding Projects</h3>
+            <p class="project-desc">Web applications, database architectures, REST APIs, and full-stack software development.</p>
+            <div class="project-tags">
+                <span>Python</span>
+                <span>Java</span>
+                <span>Django</span>
+                <span>Flask</span>
+                <span>SQL</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="project-box" data-category="editing" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Post-Production</span>
+                <i class="fa-solid fa-film project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Video Editing</h3>
+            <p class="project-desc">Story-driven cuts, documentary sequencing, sound design, color grading, and short-form video.</p>
+            <div class="project-tags">
+                <span>Premiere Pro</span>
+                <span>DaVinci</span>
+                <span>After Effects</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="project-box" data-category="photoEditing" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Digital Imaging</span>
+                <i class="fa-solid fa-wand-magic-sparkles project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Photo Editing</h3>
+            <p class="project-desc">High-end skin retouching, color grading, multi-layer compositing, and photo restoration.</p>
+            <div class="project-tags">
+                <span>Photoshop</span>
+                <span>Affinity</span>
+                <span>Lightroom</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="project-box" data-category="motionGraphics" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Animation</span>
+                <i class="fa-solid fa-clapperboard project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Motion Graphics</h3>
+            <p class="project-desc">Kinetic typography, animated lower thirds, brand logo reveals, and promo graphics packages.</p>
+            <div class="project-tags">
+                <span>After Effects</span>
+                <span>Illustrator</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <hr class="colored-line">
+
+            <!-- Services Overview Section -->
+            <section id="services" class="services-section" aria-labelledby="services-heading">
+                <h2 id="services-heading" class="services">My Services</h2>
+                <p class="services-intro">Click on any service card below to open its dedicated page with pricing options and inquiry form.</p>
+
+                <div class="services-grid">
+                    <div class="service-card" data-open-service="web-dev" role="button" tabindex="0">
+                        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p class="service-desc">Custom web solutions. Choose between Front-End design, Back-End API architecture, or Full-Stack applications.</p>
+                        <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="service-card" data-open-service="video-editing" role="button" tabindex="0">
+                        <div class="service-icon"><i class="fa-solid fa-film"></i></div>
+                        <h3>Video Editing</h3>
+                        <p class="service-desc">Pacing, cuts, sound design, and color grading for YouTube content, TikToks/Reels, or documentary clips.</p>
+                        <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="service-card" data-open-service="photo-editing" role="button" tabindex="0">
+                        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Photo Editing</h3>
+                        <p class="service-desc">Retouching, background cleaning, photo restoration, and cinematic color correction.</p>
+                        <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="service-card" data-open-service="motion-graphics" role="button" tabindex="0">
+                        <div class="service-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                        <h3>Motion Graphics</h3>
+                        <p class="service-desc">Animated logos, kinetic typography, brand intro/outro sequences, and lower-third graphic packages.</p>
+                        <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="colored-line">
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="contactme">Contact Me</h2>
+                <div class="contactcontainer">
+                    <div class="emailline">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:Kabelokgasago5@gmail.com" id="desktop-email-link">Kabelokgasago5@gmail.com</a>
+                    </div>
+                    <div class="numberline">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <a href="tel:+27815048220">081 504 8220</a>
+                    </div>
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <p>Pretoria, South Africa, 0201, ZA</p>
+                    </div>
+                    <div class="bottomicons">
+                        <a href="https://github.com/CelestialS2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/itskaybee-kgasago-086b44313/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEPARATE DEDICATED SERVICE PAGE VIEW (Hidden when on Home) -->
+        <section id="service-page-view" class="view-page service-detail-page hidden" aria-hidden="true">
+            <div class="service-page-header">
+                <button id="back-to-home" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Main Portfolio</button>
+                <h2 id="selected-service-title" class="selected-service-title">Service Details</h2>
+            </div>
+
+            <!-- Active Options Panel injected via JavaScript -->
+            <div id="service-options-details" class="service-options-details"></div>
+
+            <!-- Dedicated Service Inquiry Form -->
+            <div class="inquiry-container">
+                <h3 class="inquiry-title">Inquire About This Service</h3>
+                <p class="inquiry-subtitle">Fill in your requirements below to generate a formatted email inquiry directly to me.</p>
+
+                <form id="service-inquiry-form" class="inquiry-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-name">Your Name *</label>
+                            <input type="text" id="client-name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="client-email">Email Address *</label>
+                            <input type="email" id="client-email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service-type">Selected Service *</label>
+                        <select id="service-type" required>
+                            <option value="web-dev">Web Development</option>
+                            <option value="video-editing">Video Editing</option>
+                            <option value="photo-editing">Photo Editing</option>
+                            <option value="motion-graphics">Motion Graphics</option>
+                        </select>
+                    </div>
+
+                    <!-- Web Development Architecture Option Sub-Menu -->
+                    <div class="form-group hidden" id="web-options-group">
+                        <label for="web-type">Web Development Architecture Option *</label>
+                        <select id="web-type">
+                            <option value="frontend">Front-End Only (HTML / CSS / JavaScript) — From R1,500</option>
+                            <option value="backend">Back-End Only (Python / Flask / Django) — From R2,500</option>
+                            <option value="fullstack">Full-Stack Application (Front-End + Back-End) — From R4,000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-details">Project Details & Requirements</label>
+                        <textarea id="project-details" rows="5" placeholder="Tell me about your project scope, deliverables, and preferred timeline..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry via Email</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footertitle">&copy; 2026 Kabelo's Portfolio</p>
+            <div class="tos-container">
+                <a href="terms.html" class="tos-link">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-overlay" data-close></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal" data-close>&times;</button>
+            <h2 id="modal-title" class="modal-title"></h2>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- CV Request Email Modal -->
+    <div id="cv-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cv-modal-title">
+        <div class="modal-overlay" data-close-cv></div>
+        <div class="modal-content" style="max-width: 480px;">
+            <button class="modal-close" aria-label="Close modal" data-close-cv>&times;</button>
+            <h2 id="cv-modal-title" class="modal-title">Download CV</h2>
+            <p style="text-align: center; color: #cccccc; margin-bottom: 20px;">Please enter your email address to receive and download my Curriculum Vitae.</p>
+        
+        <form id="cv-download-form" style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="form-group">
+                <label for="cv-user-email">Email Address *</label>
+                <input type="email" id="cv-user-email" required placeholder="your.email@example.com">
+            </div>
+                <button type="submit" class="submit-btn">Download & Send Notification</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top of page">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
