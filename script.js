@@ -1,75 +1,25 @@
 // ===== Project Data Store =====
 const projectData = {
-    coding: {
-        beginner: [
-            { title: "Personal Landing Page (Placeholder)", 
-                description: "A clean single-page website built with pure HTML & CSS featuring smooth scroll navigation and responsive layout.", 
-                tech: "HTML • CSS" },
-            { title: "Simple Calculator (Placeholder)", 
-                description: "A functional calculator with basic arithmetic operations, keyboard support and a modern dark UI.", 
-                tech: "HTML • CSS • JavaScript" },
-            { title: "To-Do List App (Placeholder)", 
-                description: "Add, complete and delete tasks. Data persists in localStorage so your list survives page reloads.", 
-                tech: "HTML • CSS • JavaScript" }
-        ],
-        intermediate: [
-            { title: "Weather Dashboard (Placeholder)", 
-                description: "Fetches real-time weather data from an API, displays forecasts and allows city search with loading states.", 
-                tech: "JavaScript • Fetch API • CSS" },
-            { title: "Flask Blog (Placeholder)", 
-                description: "A multi-page blog with user authentication, create/edit/delete posts and SQLite database.", 
-                tech: "Python • Flask • SQLite • Jinja2" },
-            { title: "Expense Tracker (Placeholder)", 
-                description: "Track income and expenses with categories, charts and monthly summaries stored in the browser.", 
-                tech: "JavaScript • Chart.js • localStorage" }
-        ],
-        advanced: [
-            { title: "Full-Stack Task Manager (Placeholder)", 
-                description: "Complete task management system with user accounts, real-time updates, priorities and team sharing.", 
-                tech: "Django • PostgreSQL • JavaScript • REST API" },
-            { title: "E-commerce Prototype (Placeholder)", 
-                description: "Product catalog, shopping cart, checkout flow and admin dashboard for inventory management.", 
-                tech: "Django • Stripe • PostgreSQL • HTML/CSS" },
-            { title: "Real-time Chat App (Placeholder)", 
-                description: "WebSocket-powered chat rooms with authentication, online status and message history.", 
-                tech: "Python • Flask-SocketIO • JavaScript" }
-        ]
-    },
-    editing: {
-        beginner: [
-            { title: "Short Social Media Clips (Placeholder)", 
-                description: "Quick vertical edits for Instagram/TikTok: cuts, text overlays, simple transitions and music sync.", 
-                tech: "Premiere Pro • DaVinci Resolve" },
-            { title: "Basic YouTube Intros (Placeholder)", 
-                description: "Clean animated intros and outros with logo animation, lower-thirds and consistent branding.", 
-                tech: "After Effects • Premiere Pro" },
-            { title: "Photo Color Grading (Placeholder)", 
-                description: "Simple cinematic looks and colour correction applied to photo sequences and short videos.", 
-                tech: "DaVinci Resolve • Photoshop" }
-        ],
-        intermediate: [
-            { title: "Documentary Style Edit (Placeholder)", 
-                description: "Multi-clip storytelling with B-roll, interviews, subtle motion graphics and professional audio mix.", 
-                tech: "Premiere Pro • After Effects • Audition" },
-            { title: "Product Promo Video (Placeholder)", 
-                description: "Dynamic product showcase with kinetic typography, smooth camera moves and branded graphics.", 
-                tech: "After Effects • Premiere Pro" },
-            { title: "Event Highlight Reel (Placeholder)", 
-                description: "Fast-paced event recap with beat-synced cuts, title sequences and colour consistency across footage.", 
-                tech: "DaVinci Resolve • Premiere Pro" }
-        ],
-        advanced: [
-            { title: "Cinematic Short Film (Placeholder)", 
-                description: "Narrative short with advanced colour grading, visual effects, sound design and multi-layer compositing.", 
-                tech: "DaVinci Resolve • After Effects • Premiere Pro" },
-            { title: "Motion Graphics Package (Placeholder)", 
-                description: "Full brand motion kit: logo reveals, lower-thirds, transitions and animated icons ready for reuse.", 
-                tech: "After Effects • Illustrator / Affinity" },
-            { title: "VFX Breakdown Reel (Placeholder)", 
-                description: "Complex compositing, tracking, particle systems and seamless integration of CGI elements into live footage.", 
-                tech: "After Effects • DaVinci Resolve" }
-        ]
-    }
+    coding: [
+        { title: "Personal Landing Page", description: "A clean single-page website built with pure HTML & CSS featuring smooth scroll navigation and responsive layout.", tech: "HTML • CSS" },
+        { title: "Flask Blog", description: "A multi-page blog with user authentication, create/edit/delete posts and SQLite database.", tech: "Python • Flask • SQLite • Jinja2" },
+        { title: "Full-Stack Task Manager", description: "Complete task management system with user accounts, real-time updates, priorities and team sharing.", tech: "Django • PostgreSQL • JavaScript • REST API" }
+    ],
+    editing: [
+        { title: "Short Social Media Clips", description: "Quick vertical edits for Instagram/TikTok: cuts, text overlays, simple transitions and music sync.", tech: "Premiere Pro • DaVinci Resolve" },
+        { title: "Documentary Style Edit", description: "Multi-clip storytelling with B-roll, interviews, subtle motion graphics and professional audio mix.", tech: "Premiere Pro • After Effects • Audition" },
+        { title: "Cinematic Short Film", description: "Narrative short with advanced colour grading, visual effects, sound design and multi-layer compositing.", tech: "DaVinci Resolve • After Effects • Premiere Pro" }
+    ],
+    photoEditing: [
+        { title: "Portrait Touch-up", description: "Basic skin cleanup, blemish removal, and color balancing for individual portraits.", tech: "Photoshop • Affinity Photo" },
+        { title: "Cinematic Landscape Grading", description: "Tone mapping, sky replacement, atmosphere enhancements, and color grading for outdoor shots.", tech: "Photoshop • Lightroom • Affinity" },
+        { title: "High-End Beauty Retouching", description: "Frequency separation, non-destructive dodge & burn, texture preservation, and hair cleanup.", tech: "Photoshop • Affinity Photo" }
+    ],
+    motionGraphics: [
+        { title: "Lower Third Titles", description: "Animated lower-third graphic callouts with clean enter/exit easing for video projects.", tech: "After Effects" },
+        { title: "Kinetic Typography Video", description: "Text-driven motion design timed seamlessly to voiceover tracks or background music beats.", tech: "After Effects • Premiere Pro" },
+        { title: "Full Brand Motion Identity Kit", description: "Complete package including logo reveals, transition wipes, animated lower thirds, and intro/outro bumpers.", tech: "After Effects • Illustrator • Premiere Pro" }
+    ]
 };
 
 // ===== Service Details Data Store =====
@@ -240,35 +190,41 @@ if (desktopEmailLink) {
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalBody = document.getElementById("modal-body");
-const projectBoxes = document.querySelectorAll(".project-box");
 
-function openModal(category, level) {
+function openModal(category) {
     if (!modal) return;
-    const titleMap = { coding: "Coding", editing: "Video Editing" };
-    const levelTitle = level.charAt(0).toUpperCase() + level.slice(1);
-    modalTitle.textContent = `${titleMap[category]} – ${levelTitle} Projects`;
+    
+    const titleMap = { 
+        coding: "Coding Projects", 
+        editing: "Video Editing Projects", 
+        photoEditing: "Photo Editing Projects", 
+        motionGraphics: "Motion Graphics Projects" 
+    };
 
-    const projects = projectData[category]?.[level] || [];
+    if (modalTitle) {
+        modalTitle.textContent = titleMap[category] || "Projects";
+    }
 
-    if (projects.length === 0) {
-        modalBody.innerHTML = `<p class="no-projects">No projects listed for this level yet.</p>`;
-    } else {
-        modalBody.innerHTML = projects
-            .map(p => `
-            <article class="project-card">
-                <h3>${p.title}</h3>
-                <p>${p.description}</p>
-                <p class="tech">${p.tech}</p>
-            </article>
-        `).join("");
+    const projects = projectData[category] || [];
+
+    if (modalBody) {
+        if (projects.length === 0) {
+            modalBody.innerHTML = `<p class="no-projects">No projects listed for this category yet.</p>`;
+        } else {
+            modalBody.innerHTML = projects
+                .map(p => `
+                <article class="project-card">
+                    <h3>${p.title}</h3>
+                    <p>${p.description}</p>
+                    <p class="tech">${p.tech}</p>
+                </article>
+            `).join("");
+        }
     }
 
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-
-    const closeBtn = modal.querySelector(".modal-close");
-    if (closeBtn) closeBtn.focus();
 }
 
 function closeModal() {
@@ -278,26 +234,103 @@ function closeModal() {
     document.body.classList.remove("modal-open");
 }
 
-projectBoxes.forEach(box => {
-    box.addEventListener("click", () => {
-        openModal(box.dataset.category, box.dataset.level);
-    });
-
-    box.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            openModal(box.dataset.category, box.dataset.level);
-        }
-    });
+// Event Delegation for Project Box Clicks (Fixes inner h3 click issues)
+document.addEventListener("click", (e) => {
+    const projectBox = e.target.closest(".project-box");
+    if (projectBox) {
+        const category = projectBox.getAttribute("data-category");
+        if (category) openModal(category);
+    }
 });
 
+// Event Delegation for Project Box Keyboard Access
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+        const projectBox = e.target.closest(".project-box");
+        if (projectBox) {
+            e.preventDefault();
+            const category = projectBox.getAttribute("data-category");
+            if (category) openModal(category);
+        }
+    }
+});
+
+// Modal Close Listeners (Overlay click, 'X' button click, Escape Key)
 if (modal) {
-    modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeModal));
+    modal.addEventListener("click", (e) => {
+        if (e.target.hasAttribute("data-close") || e.target.classList.contains("modal-overlay") || e.target.classList.contains("modal-close")) {
+            closeModal();
+        }
+    });
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && modal.classList.contains("active")) {
             closeModal();
         }
+    });
+}
+
+// CV Download Modal Logic
+const cvModal = document.getElementById("cv-modal");
+const openCvBtn = document.getElementById("open-cv-modal-btn");
+const cvForm = document.getElementById("cv-download-form");
+
+function openCvModal() {
+    if (!cvModal) return;
+    cvModal.classList.add("active");
+    cvModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+}
+
+function closeCvModal() {
+    if (!cvModal) return;
+    cvModal.classList.remove("active");
+    cvModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+}
+
+if (openCvBtn) {
+    openCvBtn.addEventListener("click", openCvModal);
+}
+
+if (cvModal) {
+    cvModal.querySelectorAll("[data-close-cv]").forEach(el => el.addEventListener("click", closeCvModal));
+}
+
+// Handle CV Download & Email Notification
+if (cvForm) {
+    cvForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const userEmail = document.getElementById("cv-user-email").value;
+        const recipient = "Kabelokgasago5@gmail.com";
+        const subject = encodeURIComponent(`CV Download Notification from ${userEmail}`);
+        const body = encodeURIComponent(
+            `Hi Kabelo,\n\nUser (${userEmail}) has just requested and downloaded your CV from your portfolio site.\n\n` +
+            `Timestamp: ${new Date().toLocaleString()}\n` +
+            `User Email: ${userEmail}`
+        );
+
+        // 1. Trigger the actual PDF Download in the browser
+        const downloadLink = document.createElement("a");
+        downloadLink.href = "Kabelo_Kgasago_CV.pdf";
+        downloadLink.download = "Kabelo_Kgasago_CV.pdf";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+        // 2. Open Gmail compose window on Desktop or Mailto on Mobile to send notification
+        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
+        if (isDesktop) {
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
+            window.open(gmailUrl, '_blank');
+        } else {
+            window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        }
+
+        // Close Modal & Reset Form
+        closeCvModal();
+        cvForm.reset();
     });
 }
 
