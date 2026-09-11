@@ -270,32 +270,62 @@
             <hr class="colored-line">
 
             <!-- Contact Section -->
-            <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-                <h2 id="contact-heading" class="contactme">Contact Me</h2>
-                <div class="contactcontainer">
-                    <div class="emailline">
-                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-                        <a href="mailto:Kabelokgasago5@gmail.com" id="desktop-email-link">Kabelokgasago5@gmail.com</a>
-                    </div>
-                    <div class="numberline">
-                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                        <a href="tel:+27815048220">081 504 8220</a>
-                    </div>
-                    <div class="location">
-                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                        <p>Pretoria, South Africa, 0201, ZA</p>
-                    </div>
-                    <div class="bottomicons">
-                        <a href="https://github.com/CelestialS2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/itskaybee-kgasago-086b44313/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="contactme">Get In Touch</h2>
+    <p class="services-intro">Have a project in mind, or a job opportunity? Let's connect.</p>
+
+    <div class="contact-grid">
+        <!-- Email Card (Includes Direct Link + Quick Copy Button) -->
+        <div class="contact-card">
+            <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+            <div class="contact-info">
+                <span class="contact-label">Email Me</span>
+                <a href="mailto:Kabelokgasago5@gmail.com" id="desktop-email-link" class="contact-value">Kabelokgasago5@gmail.com</a>
+            </div>
+            <button id="copy-email-btn" class="copy-btn" title="Copy Email to Clipboard" aria-label="Copy email address">
+                <i class="fa-regular fa-copy"></i>
+            </button>
         </div>
+
+        <!-- Phone Card -->
+        <a href="tel:+27815048220" class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-info">
+                <span class="contact-label">Call / Phone</span>
+                <span class="contact-value">081 504 8220</span>
+            </div>
+            <i class="fa-solid fa-arrow-right contact-arrow"></i>
+        </a>
+
+        <!-- Location Card -->
+        <div class="contact-card static-card">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-info">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Pretoria, South Africa 🇿🇦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Links Row -->
+    <div class="social-links-container">
+        <a href="https://github.com/CelestialS2004" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub Profile">
+            <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/itskaybee-kgasago-086b44313/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn Profile">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://wa.me/27815048220?text=Hi%20Kabelo,%20I%20am%20reaching%20out%20from%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="social-pill whatsapp-pill" aria-label="WhatsApp Chat">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- Toast Notification Container for Email Copy -->
+<div id="toast-notification" class="toast" aria-live="polite">
+    <i class="fa-solid fa-circle-check"></i>
+    <span>Email address copied to clipboard!</span>
+</div>
 
         <!-- SEPARATE DEDICATED SERVICE PAGE VIEW (Hidden when on Home) -->
         <section id="service-page-view" class="view-page service-detail-page hidden" aria-hidden="true">
