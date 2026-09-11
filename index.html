@@ -28,7 +28,6 @@
             <a href="#projects" class="anchorlinks nav-home-link">Projects</a>
             <a href="#services" class="anchorlinks nav-home-link">Services</a>
             <a href="#contact" class="anchorlinks nav-home-link">Contact Me</a>
-            <a href="Kabelo_Kgasago_CV.pdf" class="cv-download-btn" download>Download CV</a>
         </nav>
     </header>
 
@@ -47,6 +46,7 @@
             
             <div class="hero-cta-buttons">
                 <a href="#projects" class="cta-primary-btn">View My Work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                <button id="open-cv-modal-btn" class="cta-primary-btn">Download CV <i class="fa-solid fa-download" aria-hidden="true"></i></button>
                 <a href="inquire.html?service=web-dev" class="cta-secondary-btn">Inquire Services <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a>
             </div>
         </div>
@@ -96,24 +96,82 @@
 
             <hr class="colored-line">
 
-            <!-- Projects Section -->
-            <section id="projects" class="projects-section" aria-labelledby="projects-heading">
-                <h2 id="projects-heading" class="projects">Projects</h2>
+<!-- Projects Section -->
+<section id="projects" class="projects-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading" class="projects">Projects</h2>
+    <p class="services-intro">Click on any category below to explore featured work and deliverables.</p>
 
-                <h3 class="codingprojects">Coding</h3>
-                <div class="projectscontainer">
-                    <div class="project-box" data-category="coding" data-level="beginner" role="button" tabindex="0">Beginner</div>
-                    <div class="project-box" data-category="coding" data-level="intermediate" role="button" tabindex="0">Intermediate</div>
-                    <div class="project-box" data-category="coding" data-level="advanced" role="button" tabindex="0">Advanced</div>
-                </div>
+    <div class="projectscontainer">
+        <div class="project-box" data-category="coding" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Development</span>
+                <i class="fa-solid fa-code project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Coding Projects</h3>
+            <p class="project-desc">Web applications, database architectures, REST APIs, and full-stack software development.</p>
+            <div class="project-tags">
+                <span>Python</span>
+                <span>Java</span>
+                <span>Django</span>
+                <span>JS</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
 
-                <h3 class="editingprojects">Video Editing</h3>
-                <div class="projectscontainer">
-                    <div class="project-box" data-category="editing" data-level="beginner" role="button" tabindex="0">Beginner</div>
-                    <div class="project-box" data-category="editing" data-level="intermediate" role="button" tabindex="0">Intermediate</div>
-                    <div class="project-box" data-category="editing" data-level="advanced" role="button" tabindex="0">Advanced</div>
-                </div>
-            </section>
+        <div class="project-box" data-category="editing" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Post-Production</span>
+                <i class="fa-solid fa-film project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Video Editing</h3>
+            <p class="project-desc">Story-driven cuts, documentary sequencing, sound design, color grading, and short-form video.</p>
+            <div class="project-tags">
+                <span>Premiere Pro</span>
+                <span>DaVinci</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="project-box" data-category="photoEditing" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Digital Imaging</span>
+                <i class="fa-solid fa-wand-magic-sparkles project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Photo Editing</h3>
+            <p class="project-desc">High-end skin retouching, color grading, multi-layer compositing, and photo restoration.</p>
+            <div class="project-tags">
+                <span>Photoshop</span>
+                <span>Affinity</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="project-box" data-category="motionGraphics" role="button" tabindex="0">
+            <div class="project-card-header">
+                <span class="project-category-tag">Animation</span>
+                <i class="fa-solid fa-clapperboard project-icon" aria-hidden="true"></i>
+            </div>
+            <h3>Motion Graphics</h3>
+            <p class="project-desc">Kinetic typography, animated lower thirds, brand logo reveals, and promo graphics packages.</p>
+            <div class="project-tags">
+                <span>After Effects</span>
+            </div>
+            <div class="project-action-btn">
+                <span>Explore Showcase</span>
+                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</section>
 
             <hr class="colored-line">
 
@@ -258,6 +316,24 @@
             <button class="modal-close" aria-label="Close modal" data-close>&times;</button>
             <h2 id="modal-title" class="modal-title"></h2>
             <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- CV Request Email Modal -->
+    <div id="cv-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cv-modal-title">
+        <div class="modal-overlay" data-close-cv></div>
+        <div class="modal-content" style="max-width: 480px;">
+            <button class="modal-close" aria-label="Close modal" data-close-cv>&times;</button>
+            <h2 id="cv-modal-title" class="modal-title">Download CV</h2>
+            <p style="text-align: center; color: #cccccc; margin-bottom: 20px;">Please enter your email address to receive and download my Curriculum Vitae.</p>
+        
+        <form id="cv-download-form" style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="form-group">
+                <label for="cv-user-email">Email Address *</label>
+                <input type="email" id="cv-user-email" required placeholder="your.email@example.com">
+            </div>
+                <button type="submit" class="submit-btn">Download & Send Notification</button>
+            </form>
         </div>
     </div>
 
