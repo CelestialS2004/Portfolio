@@ -349,7 +349,6 @@ if (scrollTopBtn) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
-
 // Copy Email & Toast Notification Handler
 const copyEmailBtn = document.getElementById("copy-email-btn");
 const toast = document.getElementById("toast-notification");
@@ -374,3 +373,25 @@ if (copyEmailBtn && toast) {
         });
     });
 }
+
+// ===== Scroll Reveal Observer =====
+document.addEventListener("DOMContentLoaded", () => {
+    // Mark body as JS-enabled to safely trigger animation styles
+    document.body.classList.add("js-enabled");
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target); // Animate once
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px"
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+});
