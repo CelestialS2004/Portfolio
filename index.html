@@ -6,11 +6,10 @@
     <title>Kabelo's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d09fda1d27.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <body>
 
@@ -33,37 +32,31 @@
 
     <main>
 
-        <!-- Home Landing View (Contains Home Sections) -->
-<div id="home-view" class="view-page active-view">
-
-    <!-- Hero / Intro Section -->
-    <section id="hero" class="hero-section" aria-label="Hero Introduction">
-        <div class="hero-content">
-            <span class="hero-greeting">Hi, I'm</span>
-            <h1 class="hero-name">Kabelo Kgasago</h1>
-            <p class="hero-tagline">Software Developer & Visual Content Creator</p>
-            <p class="hero-subtext">Specialising in general software, full-stack web development, and digital media editing.</p>
-            
-            <div class="hero-cta-buttons">
-                <a href="#projects" class="cta-primary-btn">View My Work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
-                <button id="open-cv-modal-btn" class="cta-primary-btn">Download CV <i class="fa-solid fa-download" aria-hidden="true"></i></button>
-                <a href="inquire.html?service=web-dev" class="cta-secondary-btn">Inquire Services <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <hr class="colored-line">
-
-    <!-- About Section -->
-    <section id="about" class="about-section" aria-labelledby="about-heading">
-
-        <!-- Home Landing View (Contains Home Sections) -->
+        <!-- Home Landing View -->
         <div id="home-view" class="view-page active-view">
+
+            <!-- Hero / Intro Section -->
+            <section id="hero" class="hero-section" aria-label="Hero Introduction">
+                <div class="hero-content">
+                    <span class="hero-greeting">Hi, I'm</span>
+                    <h1 class="hero-name">Kabelo Kgasago</h1>
+                    <p class="hero-tagline">Software Developer & Visual Content Creator</p>
+                    <p class="hero-subtext">Specialising in general software, full-stack web development, and digital media editing.</p>
+                    
+                    <div class="hero-cta-buttons">
+                        <a href="#projects" class="cta-primary-btn">View My Work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                        <button id="open-cv-modal-btn" class="cta-primary-btn">Download CV <i class="fa-solid fa-download" aria-hidden="true"></i></button>
+                        <a href="inquire.html?service=web-dev" class="cta-secondary-btn">Inquire Services <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="colored-line">
 
             <!-- About Section -->
             <section id="about" class="about-section" aria-labelledby="about-heading">
-                <h2 id="about-heading" class="About">About Me</h2>
-                <div class="aboutmecontainer">
+                <h2 id="about-heading" class="About reveal">About Me</h2>
+                <div class="aboutmecontainer reveal delay-1">
                     <p class="aboutmedescription">
                         I'm Kabelo Kgasago, an ardent Software Developer with a great passion for creating innovative solutions.
                         I constantly seek new challenges and opportunities to expand my skill set. With a strong foundation in programming languages and a keen eye for detail, I thrive in dynamic environments where I can apply my creativity and problem-solving abilities.
@@ -75,190 +68,190 @@
             <hr class="colored-line">
 
             <!-- Skills Section -->
-<section id="skills" class="skills-section" aria-labelledby="skills-heading">
-    <h2 id="skills-heading" class="skills">Skills & Technologies</h2>
-    <p class="services-intro">Technical stack, frameworks, and creative digital media software I work with.</p>
+            <section id="skills" class="skills-section" aria-labelledby="skills-heading">
+                <h2 id="skills-heading" class="skills reveal">Skills & Technologies</h2>
+                <p class="services-intro reveal">Technical stack, frameworks, and creative digital media software I work with.</p>
 
-    <!-- Coding & Development Skills -->
-    <h3 class="skill-category-title"><i class="fa-solid fa-code"></i> Software Development</h3>
-<div class="skillcontainer">
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="software-logo">
-        HTML5
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="software-logo">
-        CSS3
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="software-logo">
-        JavaScript
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="software-logo">
-        Python
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="software-logo">
-        Java
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="software-logo">
-        PHP
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="software-logo style-flask-logo">
-        Flask
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="software-logo style-django-logo">
-        Django
-    </div>
-    <div class="borderedboxes">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="software-logo">
-        Git
-    </div>
-</div>
+                <!-- Software Development Skills -->
+                <h3 class="skill-category-title reveal"><i class="fa-solid fa-code"></i> Software Development</h3>
+                <div class="skillcontainer">
+                    <div class="borderedboxes reveal delay-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="software-logo">
+                        HTML5
+                    </div>
+                    <div class="borderedboxes reveal delay-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="software-logo">
+                        CSS3
+                    </div>
+                    <div class="borderedboxes reveal delay-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="software-logo">
+                        JavaScript
+                    </div>
+                    <div class="borderedboxes reveal delay-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="software-logo">
+                        Python
+                    </div>
+                    <div class="borderedboxes reveal delay-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="software-logo">
+                        Java
+                    </div>
+                    <div class="borderedboxes reveal delay-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="software-logo">
+                        PHP
+                    </div>
+                    <div class="borderedboxes reveal delay-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="software-logo style-flask-logo">
+                        Flask
+                    </div>
+                    <div class="borderedboxes reveal delay-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="software-logo style-django-logo">
+                        Django
+                    </div>
+                    <div class="borderedboxes reveal delay-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="software-logo">
+                        Git
+                    </div>
+                </div>
 
-    <!-- Media & Creative Software -->
-    <h3 class="skill-category-title"><i class="fa-solid fa-photo-film"></i> Creative & Media Production</h3>
-<div class="skillcontainer">
-    <div class="borderedboxes">
-        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/3840px-Adobe_Premiere_Pro_CC_icon.svg.png" alt="Premiere Pro" class="software-logo">
-        Premiere Pro
-    </div>
-    <div class="borderedboxes">
-        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/960px-Adobe_After_Effects_CC_icon.svg.png" alt="After Effects" class="software-logo">
-        After Effects
-    </div>
-    <div class="borderedboxes">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve" class="software-logo">
-        DaVinci Resolve
-    </div>
-    <div class="borderedboxes">
-        <img src="https://static.vecteezy.com/system/resources/previews/056/850/838/non_2x/adobe-photoshop-logo-on-a-transparent-background-free-png.png" alt="Adobe Photoshop" class="software-logo">
-        Adobe Photoshop
-    </div>
-    <div class="borderedboxes">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Affinity-Designer.png" alt="Affinity" class="software-logo">
-        Affinity
-    </div>
-</div>
-</section>
+                <!-- Media & Creative Software -->
+                <h3 class="skill-category-title reveal"><i class="fa-solid fa-photo-film"></i> Creative & Media Production</h3>
+                <div class="skillcontainer">
+                    <div class="borderedboxes reveal delay-1">
+                        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/3840px-Adobe_Premiere_Pro_CC_icon.svg.png" alt="Premiere Pro" class="software-logo">
+                        Premiere Pro
+                    </div>
+                    <div class="borderedboxes reveal delay-2">
+                        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/960px-Adobe_After_Effects_CC_icon.svg.png" alt="After Effects" class="software-logo">
+                        After Effects
+                    </div>
+                    <div class="borderedboxes reveal delay-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve" class="software-logo">
+                        DaVinci Resolve
+                    </div>
+                    <div class="borderedboxes reveal delay-4">
+                        <img src="https://static.vecteezy.com/system/resources/previews/056/850/838/non_2x/adobe-photoshop-logo-on-a-transparent-background-free-png.png" alt="Adobe Photoshop" class="software-logo">
+                        Adobe Photoshop
+                    </div>
+                    <div class="borderedboxes reveal delay-1">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Affinity-Designer.png" alt="Affinity" class="software-logo">
+                        Affinity
+                    </div>
+                </div>
+            </section>
 
             <hr class="colored-line">
 
-<!-- Projects Section -->
-<section id="projects" class="projects-section" aria-labelledby="projects-heading">
-    <h2 id="projects-heading" class="projects">Projects</h2>
-    <p class="services-intro">Click on any category below to explore featured work and deliverables.</p>
+            <!-- Projects Section -->
+            <section id="projects" class="projects-section" aria-labelledby="projects-heading">
+                <h2 id="projects-heading" class="projects reveal">Projects</h2>
+                <p class="services-intro reveal">Click on any category below to explore featured work and deliverables.</p>
 
-    <div class="projectscontainer">
-        <div class="project-box" data-category="coding" role="button" tabindex="0">
-            <div class="project-card-header">
-                <span class="project-category-tag">Development</span>
-                <i class="fa-solid fa-code project-icon" aria-hidden="true"></i>
-            </div>
-            <h3>Coding Projects</h3>
-            <p class="project-desc">Web applications, database architectures, REST APIs, and full-stack software development.</p>
-            <div class="project-tags">
-                <span>Python</span>
-                <span>Java</span>
-                <span>Django</span>
-                <span>Flask</span>
-                <span>SQL</span>
-            </div>
-            <div class="project-action-btn">
-                <span>Explore Showcase</span>
-                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </div>
-        </div>
+                <div class="projectscontainer">
+                    <div class="project-box reveal delay-1" data-category="coding" role="button" tabindex="0">
+                        <div class="project-card-header">
+                            <span class="project-category-tag">Development</span>
+                            <i class="fa-solid fa-code project-icon" aria-hidden="true"></i>
+                        </div>
+                        <h3>Coding Projects</h3>
+                        <p class="project-desc">Web applications, database architectures, REST APIs, and full-stack software development.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Java</span>
+                            <span>Django</span>
+                            <span>Flask</span>
+                            <span>SQL</span>
+                        </div>
+                        <div class="project-action-btn">
+                            <span>Explore Showcase</span>
+                            <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </div>
+                    </div>
 
-        <div class="project-box" data-category="editing" role="button" tabindex="0">
-            <div class="project-card-header">
-                <span class="project-category-tag">Post-Production</span>
-                <i class="fa-solid fa-film project-icon" aria-hidden="true"></i>
-            </div>
-            <h3>Video Editing</h3>
-            <p class="project-desc">Story-driven cuts, documentary sequencing, sound design, color grading, and short-form video.</p>
-            <div class="project-tags">
-                <span>Premiere Pro</span>
-                <span>DaVinci</span>
-                <span>After Effects</span>
-            </div>
-            <div class="project-action-btn">
-                <span>Explore Showcase</span>
-                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </div>
-        </div>
+                    <div class="project-box reveal delay-2" data-category="editing" role="button" tabindex="0">
+                        <div class="project-card-header">
+                            <span class="project-category-tag">Post-Production</span>
+                            <i class="fa-solid fa-film project-icon" aria-hidden="true"></i>
+                        </div>
+                        <h3>Video Editing</h3>
+                        <p class="project-desc">Story-driven cuts, documentary sequencing, sound design, color grading, and short-form video.</p>
+                        <div class="project-tags">
+                            <span>Premiere Pro</span>
+                            <span>DaVinci</span>
+                            <span>After Effects</span>
+                        </div>
+                        <div class="project-action-btn">
+                            <span>Explore Showcase</span>
+                            <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </div>
+                    </div>
 
-        <div class="project-box" data-category="photoEditing" role="button" tabindex="0">
-            <div class="project-card-header">
-                <span class="project-category-tag">Digital Imaging</span>
-                <i class="fa-solid fa-wand-magic-sparkles project-icon" aria-hidden="true"></i>
-            </div>
-            <h3>Photo Editing</h3>
-            <p class="project-desc">High-end skin retouching, color grading, multi-layer compositing, and photo restoration.</p>
-            <div class="project-tags">
-                <span>Photoshop</span>
-                <span>Affinity</span>
-                <span>Lightroom</span>
-            </div>
-            <div class="project-action-btn">
-                <span>Explore Showcase</span>
-                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </div>
-        </div>
+                    <div class="project-box reveal delay-3" data-category="photoEditing" role="button" tabindex="0">
+                        <div class="project-card-header">
+                            <span class="project-category-tag">Digital Imaging</span>
+                            <i class="fa-solid fa-wand-magic-sparkles project-icon" aria-hidden="true"></i>
+                        </div>
+                        <h3>Photo Editing</h3>
+                        <p class="project-desc">High-end skin retouching, color grading, multi-layer compositing, and photo restoration.</p>
+                        <div class="project-tags">
+                            <span>Photoshop</span>
+                            <span>Affinity</span>
+                            <span>Lightroom</span>
+                        </div>
+                        <div class="project-action-btn">
+                            <span>Explore Showcase</span>
+                            <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </div>
+                    </div>
 
-        <div class="project-box" data-category="motionGraphics" role="button" tabindex="0">
-            <div class="project-card-header">
-                <span class="project-category-tag">Animation</span>
-                <i class="fa-solid fa-clapperboard project-icon" aria-hidden="true"></i>
-            </div>
-            <h3>Motion Graphics</h3>
-            <p class="project-desc">Kinetic typography, animated lower thirds, brand logo reveals, and promo graphics packages.</p>
-            <div class="project-tags">
-                <span>After Effects</span>
-                <span>Illustrator</span>
-            </div>
-            <div class="project-action-btn">
-                <span>Explore Showcase</span>
-                <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </div>
-        </div>
-    </div>
-</section>
+                    <div class="project-box reveal delay-4" data-category="motionGraphics" role="button" tabindex="0">
+                        <div class="project-card-header">
+                            <span class="project-category-tag">Animation</span>
+                            <i class="fa-solid fa-clapperboard project-icon" aria-hidden="true"></i>
+                        </div>
+                        <h3>Motion Graphics</h3>
+                        <p class="project-desc">Kinetic typography, animated lower thirds, brand logo reveals, and promo graphics packages.</p>
+                        <div class="project-tags">
+                            <span>After Effects</span>
+                            <span>Illustrator</span>
+                        </div>
+                        <div class="project-action-btn">
+                            <span>Explore Showcase</span>
+                            <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <hr class="colored-line">
 
             <!-- Services Overview Section -->
             <section id="services" class="services-section" aria-labelledby="services-heading">
-                <h2 id="services-heading" class="services">My Services</h2>
-                <p class="services-intro">Click on any service card below to open its dedicated page with pricing options and inquiry form.</p>
+                <h2 id="services-heading" class="services reveal">My Services</h2>
+                <p class="services-intro reveal">Click on any service card below to open its dedicated page with pricing options and inquiry form.</p>
 
                 <div class="services-grid">
-                    <div class="service-card" data-open-service="web-dev" role="button" tabindex="0">
+                    <div class="service-card reveal delay-1" data-open-service="web-dev" role="button" tabindex="0">
                         <div class="service-icon"><i class="fa-solid fa-code"></i></div>
                         <h3>Web Development</h3>
                         <p class="service-desc">Custom web solutions. Choose between Front-End design, Back-End API architecture, or Full-Stack applications.</p>
                         <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
                     </div>
 
-                    <div class="service-card" data-open-service="video-editing" role="button" tabindex="0">
+                    <div class="service-card reveal delay-2" data-open-service="video-editing" role="button" tabindex="0">
                         <div class="service-icon"><i class="fa-solid fa-film"></i></div>
                         <h3>Video Editing</h3>
                         <p class="service-desc">Pacing, cuts, sound design, and color grading for YouTube content, TikToks/Reels, or documentary clips.</p>
                         <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
                     </div>
 
-                    <div class="service-card" data-open-service="photo-editing" role="button" tabindex="0">
+                    <div class="service-card reveal delay-3" data-open-service="photo-editing" role="button" tabindex="0">
                         <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                         <h3>Photo Editing</h3>
                         <p class="service-desc">Retouching, background cleaning, photo restoration, and cinematic color correction.</p>
                         <div class="service-action-btn">Open Page <i class="fa-solid fa-arrow-right"></i></div>
                     </div>
 
-                    <div class="service-card" data-open-service="motion-graphics" role="button" tabindex="0">
+                    <div class="service-card reveal delay-4" data-open-service="motion-graphics" role="button" tabindex="0">
                         <div class="service-icon"><i class="fa-solid fa-clapperboard"></i></div>
                         <h3>Motion Graphics</h3>
                         <p class="service-desc">Animated logos, kinetic typography, brand intro/outro sequences, and lower-third graphic packages.</p>
@@ -270,64 +263,59 @@
             <hr class="colored-line">
 
             <!-- Contact Section -->
-<section id="contact" class="contact-section" aria-labelledby="contact-heading">
-    <h2 id="contact-heading" class="contactme">Get In Touch</h2>
-    <p class="services-intro">Have a project in mind, or a job opportunity? Let's connect.</p>
+            <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="contactme reveal">Get In Touch</h2>
+                <p class="services-intro reveal">Have a project in mind, a job opportunity, or just want to say hi? Let's connect.</p>
 
-    <div class="contact-grid">
-        <!-- Email Card (Includes Direct Link + Quick Copy Button) -->
-        <div class="contact-card">
-            <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
-            <div class="contact-info">
-                <span class="contact-label">Email Me</span>
-                <a href="mailto:Kabelokgasago5@gmail.com" id="desktop-email-link" class="contact-value">Kabelokgasago5@gmail.com</a>
-            </div>
-            <button id="copy-email-btn" class="copy-btn" title="Copy Email to Clipboard" aria-label="Copy email address">
-                <i class="fa-regular fa-copy"></i>
-            </button>
+                <div class="contact-grid">
+                    <!-- Email Card -->
+                    <div class="contact-card reveal delay-1">
+                        <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+                        <div class="contact-info">
+                            <span class="contact-label">Email Me</span>
+                            <a href="mailto:Kabelokgasago5@gmail.com" id="desktop-email-link" class="contact-value">Kabelokgasago5@gmail.com</a>
+                        </div>
+                        <button id="copy-email-btn" class="copy-btn" title="Copy Email to Clipboard" aria-label="Copy email address">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <a href="tel:+27815048220" class="contact-card reveal delay-2">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-info">
+                            <span class="contact-label">Call / Phone</span>
+                            <span class="contact-value">081 504 8220</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-right contact-arrow"></i>
+                    </a>
+
+                    <!-- Location Card -->
+                    <div class="contact-card static-card reveal delay-3">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-info">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Pretoria, South Africa 🇿🇦</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social & Messaging Pills -->
+                <div class="social-links-container reveal delay-4">
+                    <a href="https://github.com/CelestialS2004" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub Profile">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/itskaybee-kgasago-086b44313/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn Profile">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://wa.me/27815048220?text=Hi%20Kabelo,%20I%20am%20reaching%20out%20from%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="social-pill whatsapp-pill" aria-label="WhatsApp Chat">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </section>
         </div>
 
-        <!-- Phone Card -->
-        <a href="tel:+27815048220" class="contact-card">
-            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-            <div class="contact-info">
-                <span class="contact-label">Call / Phone</span>
-                <span class="contact-value">081 504 8220</span>
-            </div>
-            <i class="fa-solid fa-arrow-right contact-arrow"></i>
-        </a>
-
-        <!-- Location Card -->
-        <div class="contact-card static-card">
-            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div class="contact-info">
-                <span class="contact-label">Location</span>
-                <span class="contact-value">Pretoria, South Africa 🇿🇦</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Social Links Row -->
-    <div class="social-links-container">
-        <a href="https://github.com/CelestialS2004" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub Profile">
-            <i class="fa-brands fa-github"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/itskaybee-kgasago-086b44313/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn Profile">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://wa.me/27815048220?text=Hi%20Kabelo,%20I%20am%20reaching%20out%20from%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="social-pill whatsapp-pill" aria-label="WhatsApp Chat">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-    </div>
-</section>
-
-<!-- Toast Notification Container for Email Copy -->
-<div id="toast-notification" class="toast" aria-live="polite">
-    <i class="fa-solid fa-circle-check"></i>
-    <span>Email address copied to clipboard!</span>
-</div>
-
-        <!-- SEPARATE DEDICATED SERVICE PAGE VIEW (Hidden when on Home) -->
+        <!-- SEPARATE DEDICATED SERVICE PAGE VIEW -->
         <section id="service-page-view" class="view-page service-detail-page hidden" aria-hidden="true">
             <div class="service-page-header">
                 <button id="back-to-home" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Main Portfolio</button>
@@ -413,11 +401,11 @@
             <h2 id="cv-modal-title" class="modal-title">Download CV</h2>
             <p style="text-align: center; color: #cccccc; margin-bottom: 20px;">Please enter your email address to receive and download my Curriculum Vitae.</p>
         
-        <form id="cv-download-form" style="display: flex; flex-direction: column; gap: 15px;">
-            <div class="form-group">
-                <label for="cv-user-email">Email Address *</label>
-                <input type="email" id="cv-user-email" required placeholder="your.email@example.com">
-            </div>
+            <form id="cv-download-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="form-group">
+                    <label for="cv-user-email">Email Address *</label>
+                    <input type="email" id="cv-user-email" required placeholder="your.email@example.com">
+                </div>
                 <button type="submit" class="submit-btn">Download & Send Notification</button>
             </form>
         </div>
@@ -427,6 +415,12 @@
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top of page">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
+
+    <!-- Toast Notification for Email Copy -->
+    <div id="toast-notification" class="toast" aria-live="polite">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Email address copied to clipboard!</span>
+    </div>
 
     <script src="script.js"></script>
 </body>
