@@ -349,3 +349,28 @@ if (scrollTopBtn) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
+
+// Copy Email & Toast Notification Handler
+const copyEmailBtn = document.getElementById("copy-email-btn");
+const toast = document.getElementById("toast-notification");
+
+if (copyEmailBtn && toast) {
+    copyEmailBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const emailText = "Kabelokgasago5@gmail.com";
+
+        navigator.clipboard.writeText(emailText).then(() => {
+            // Show Toast Notification
+            toast.classList.add("show");
+
+            // Hide Toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }).catch(err => {
+            console.error("Failed to copy email: ", err);
+        });
+    });
+}
