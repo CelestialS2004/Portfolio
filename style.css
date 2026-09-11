@@ -326,12 +326,42 @@ a:hover {
     border-color: #A6B794;
     color: #ffffff;
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(166, 183, 148, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px #a6b79480;
 }
 
 .borderedboxes:hover i {
     color: #A6B794;
     transform: scale(1.15);
+}
+
+.software-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Brighten dark monochromatic logos for dark mode */
+.style-flask-logo {
+    filter: invert(1);
+}
+
+.style-django-logo {
+    filter: brightness(0) invert(1);
+}
+
+.borderedboxes:hover .software-logo {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 6px #a6b79480);
+}
+
+.borderedboxes:hover .style-flask-logo {
+    filter: invert(1) drop-shadow(0 0 6px #a6b79480);
+}
+
+.borderedboxes:hover .style-django-logo {
+    filter: brightness(0) invert(1) drop-shadow(0 0 6px #a6b79480);
 }
 
 /* ===== Projects Section ===== */
@@ -1112,6 +1142,11 @@ a:hover {
 
     .borderedboxes i {
         font-size: 1.05rem;
+    }
+
+    .software-logo {
+        width: 20px;
+        height: 20px;
     }
 
     .project-box {
