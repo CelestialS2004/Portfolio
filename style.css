@@ -268,19 +268,31 @@ a:hover {
 .skills {
     font-size: 3rem;
     text-align: center;
-    margin: 60px 0 40px;
+    margin: 60px 0 10px;
 }
 
 #skills {
     scroll-margin-top: 100px;
 }
 
+.skill-category-title {
+    max-width: 1100px;
+    margin: 40px auto 20px;
+    padding: 0 20px;
+    font-size: 1.35rem;
+    color: #A6B794;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .skillcontainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 28px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 30px;
     padding: 0 20px;
 }
 
@@ -288,19 +300,38 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120px;
-    background-color: #141414;
-    border: 1px solid #2a2a2a;
+    gap: 10px;
+    height: 78px; 
+    padding: 0 16px; 
+    background: linear-gradient(145deg, #141414, #0f0f0f);
+    border: 1px solid #262626;
     border-radius: 10px;
-    font-size: 1.35rem;
-    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: default;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    white-space: nowrap; 
+}
+
+.borderedboxes i {
+    font-size: 1.25rem;
+    color: #888888;
+    transition: color 0.25s ease, transform 0.25s ease;
+    flex-shrink: 0; 
 }
 
 .borderedboxes:hover {
     border-color: #A6B794;
+    color: #ffffff;
     transform: translateY(-4px);
-    box-shadow: 0 6px 20px #a6b79473;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(166, 183, 148, 0.2);
+}
+
+.borderedboxes:hover i {
+    color: #A6B794;
+    transform: scale(1.15);
 }
 
 /* ===== Projects Section ===== */
@@ -418,6 +449,12 @@ a:hover {
     border: 1px solid #2a2a2a;
     padding: 3px 8px;
     border-radius: 4px;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.project-box:hover .project-tags span {
+    border-color: #a6b794;
+    color: #ffffff;
 }
 
 /* Clean CTA Link at bottom */
@@ -1051,8 +1088,14 @@ a:hover {
     }
 
     .skillcontainer {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 12px;
+        padding: 0 15px;
+    }
+
+    .skill-category-title {
+        font-size: 1.15rem;
+        margin-top: 30px;
     }
 
     .projectscontainer {
@@ -1062,8 +1105,13 @@ a:hover {
     }
 
     .borderedboxes {
-        height: 100px;
-        font-size: 1.15rem;
+        height: 60px;
+        font-size: 0.95rem;
+        gap: 8px;
+    }
+
+    .borderedboxes i {
+        font-size: 1.05rem;
     }
 
     .project-box {
