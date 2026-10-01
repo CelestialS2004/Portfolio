@@ -19,6 +19,11 @@ const projectData = {
         { title: "Lower Third Titles", description: "Animated lower-third graphic callouts with clean enter/exit easing for video projects.", tech: "After Effects" },
         { title: "Kinetic Typography Video", description: "Text-driven motion design timed seamlessly to voiceover tracks or background music beats.", tech: "After Effects • Premiere Pro" },
         { title: "Full Brand Motion Identity Kit", description: "Complete package including logo reveals, transition wipes, animated lower thirds, and intro/outro bumpers.", tech: "After Effects • Illustrator • Premiere Pro" }
+    ],
+    blender3d: [
+        { title: "Product Render Showcase", description: "Photorealistic product visualisation with custom lighting, materials, and studio-style camera setups.", tech: "Blender • Cycles • Photoshop" },
+        { title: "Stylised 3D Environment", description: "A low-poly or stylised scene built from scratch, covering modelling, texturing, lighting, and atmosphere.", tech: "Blender • Eevee • Substance Painter" },
+        { title: "Animated 3D Logo Sting", description: "A 3D brand logo with dynamic lighting and camera movement, composited into a final video intro.", tech: "Blender • After Effects • DaVinci Resolve" }
     ]
 };
 
@@ -28,9 +33,9 @@ const serviceDetailsData = {
         title: "Web Development Options",
         description: "Choose your architecture path below. Options can be ordered separately or combined into an end-to-end full-stack web application.",
         options: [
-            { name: "Front-End Development", desc: "UI/UX design translation, responsive HTML/CSS/JS, custom animations, and clean client-side logic.", price: "From R1,500" },
-            { name: "Back-End Development", desc: "Database architecture, API development, server-side processing in Python/Flask/Django, and user auth.", price: "From R2,500" },
-            { name: "Full-Stack Application", desc: "Complete end-to-end application combining modern UI with robust backend database workflows.", price: "From R4,000" }
+            { name: "Front-End Development", desc: "UI/UX design translation, responsive HTML/CSS/JS, custom animations, and clean client-side logic.", price: "From R3,500" },
+            { name: "Back-End Development", desc: "Database architecture, API development, server-side processing in Python/Flask/Django, and user auth.", price: "From R5,500" },
+            { name: "Full-Stack Application", desc: "Complete end-to-end application combining modern UI with robust backend database workflows.", price: "From R9,000" }
         ]
     },
     "video-editing": {
@@ -38,8 +43,8 @@ const serviceDetailsData = {
         description: "Professional video editing tailored for social content creators, YouTube channels, or corporate branding.",
         options: [
             { name: "Short Social Clips", desc: "Fast-paced vertical edits (Reels/TikTok/Shorts) with captions, sound effects, and audio sync.", price: "From R450 / clip" },
-            { name: "YouTube & Longform", desc: "Complete pacing cuts, B-roll insertion, audio levelling, color enhancement, and graphic lower thirds.", price: "From R1,200 / video" },
-            { name: "Documentary / Event", desc: "Multi-cam syncing, cinematic color grading, sound design, and narrative storytelling polish.", price: "From R2,500 / project" }
+            { name: "YouTube & Longform", desc: "Complete pacing cuts, B-roll insertion, audio levelling, color enhancement, and graphic lower thirds.", price: "From R1,500 / video" },
+            { name: "Documentary / Event", desc: "Multi-cam syncing, cinematic color grading, sound design, and narrative storytelling polish.", price: "From R3,500 / project" }
         ]
     },
     "photo-editing": {
@@ -48,16 +53,25 @@ const serviceDetailsData = {
         options: [
             { name: "Standard Retouching", desc: "Skin smoothing, object/background cleanup, and lighting adjustments.", price: "From R150 / image" },
             { name: "Cinematic Color Grade", desc: "Custom color styling, tone mapping, and mood enhancements using Photoshop & Affinity.", price: "From R250 / image" },
-            { name: "Batch Restoration", desc: "Bulk retouching and consistency grading for event galleries or product catalogues.", price: "From R800 / batch" }
+            { name: "Batch Editing & Restoration", desc: "Bulk retouching and consistency grading for event galleries or product catalogues.", price: "From R60 / image (min. 20)" }
         ]
     },
     "motion-graphics": {
         title: "Motion Graphics Options",
         description: "Custom keyframe animation and graphic motion assets created with Adobe After Effects.",
         options: [
-            { name: "Logo Reveal & Intros", desc: "Animated brand logo reveals, intro/outro screens, and custom video stings.", price: "From R1,200" },
-            { name: "Kinetic Typography", desc: "Animated typography sequences, lower thirds, and callout graphics for videos.", price: "From R1,800" },
-            { name: "Full Motion Package", desc: "Complete motion graphic kit including animated overlays, lower thirds, and transitions.", price: "From R3,000" }
+            { name: "Logo Reveal & Intros", desc: "Animated brand logo reveals, intro/outro screens, and custom video stings.", price: "From R1,800" },
+            { name: "Kinetic Typography", desc: "Animated typography sequences, lower thirds, and callout graphics for videos.", price: "From R3,000" },
+            { name: "Full Motion Package", desc: "Complete motion graphic kit including animated overlays, lower thirds, and transitions.", price: "From R6,000" }
+        ]
+    },
+    "3d-modelling": {
+        title: "3D Modelling & Rendering Options",
+        description: "Custom 3D models, photorealistic renders, and animated 3D visuals created in Blender.",
+        options: [
+            { name: "3D Product Render", desc: "Photorealistic studio or lifestyle renders of your product with custom materials, lighting, and camera angles.", price: "From R1,200 / image" },
+            { name: "3D Modelling & Assets", desc: "Clean, textured models of products, props, or environments, ready for rendering, web, or game use.", price: "From R2,500 / model" },
+            { name: "3D Animation", desc: "Animated product spins, logo reveals, or short scenes with dynamic lighting and camera movement.", price: "From R4,000 / 10 sec" }
         ]
     }
 };
@@ -198,7 +212,8 @@ function openModal(category) {
         coding: "Coding Projects", 
         editing: "Video Editing Projects", 
         photoEditing: "Photo Editing Projects", 
-        motionGraphics: "Motion Graphics Projects" 
+        motionGraphics: "Motion Graphics Projects", 
+        blender3d: "3D Modelling Projects"
     };
 
     if (modalTitle) {
