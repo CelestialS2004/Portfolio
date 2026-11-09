@@ -17,8 +17,8 @@ const projectData = {
     ],
     motionGraphics: [
         { title: "Lower Third Titles", description: "Animated lower-third graphic callouts with clean enter/exit easing for video projects.", tech: "After Effects" },
-        { title: "Kinetic Typography Video", description: "Text-driven motion design timed seamlessly to voiceover tracks or background music beats.", tech: "After Effects • Premiere Pro" },
-        { title: "Full Brand Motion Identity Kit", description: "Complete package including logo reveals, transition wipes, animated lower thirds, and intro/outro bumpers.", tech: "After Effects • Illustrator • Premiere Pro" }
+        { title: "Kinetic Typography Video", description: "Text-driven motion design timed seamlessly to voiceover tracks or background music beats.", tech: "After Effects • DaVinci Resolve" },
+        { title: "Full Brand Motion Identity Kit", description: "Complete package including logo reveals, transition wipes, animated lower thirds, and intro/outro bumpers.", tech: "After Effects • Illustrator • DaVinci Resolve" }
     ],
     blender3d: [
         { title: "Product Render Showcase", description: "Photorealistic product visualisation with custom lighting, materials, and studio-style camera setups.", tech: "Blender • Cycles • Photoshop" },
@@ -76,7 +76,14 @@ const serviceDetailsData = {
     }
 };
 
-// Index Page Card Clicks - Navigates in SAME TAB
+// ===== Helpers =====
+// More reliable than `ontouchstart in window` — touchscreen Windows laptops
+// were incorrectly treated as mobile.
+function isDesktopDevice() {
+    return !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// ===== Index Page Service Cards - Navigate to inquire.html =====
 const serviceCards = document.querySelectorAll("[data-open-service]");
 serviceCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -93,7 +100,7 @@ serviceCards.forEach(card => {
     });
 });
 
-// Inquire Page Logic Execution
+// ===== Inquire Page Logic =====
 if (window.location.pathname.includes("inquire.html")) {
     const urlParams = new URLSearchParams(window.location.search);
     const serviceKey = urlParams.get("service") || "web-dev";
@@ -145,7 +152,7 @@ if (window.location.pathname.includes("inquire.html")) {
     }
 }
 
-// Form Submission Handler - Opens Gmail in NEW TAB on Desktop
+// ===== Inquiry Form Submission =====
 const inquiryForm = document.getElementById("service-inquiry-form");
 if (inquiryForm) {
     inquiryForm.addEventListener("submit", (e) => {
@@ -175,9 +182,7 @@ if (inquiryForm) {
             `Best regards,\n${name}`
         );
 
-        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
-
-        if (isDesktop) {
+        if (isDesktopDevice()) {
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
             window.open(gmailUrl, '_blank');
         } else {
@@ -186,12 +191,11 @@ if (inquiryForm) {
     });
 }
 
-// Contact Section Email Handler - Opens Gmail in NEW TAB on Desktop
+// ===== Contact Section Email Handler =====
 const desktopEmailLink = document.getElementById("desktop-email-link");
 if (desktopEmailLink) {
     desktopEmailLink.addEventListener("click", (e) => {
-        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
-        if (isDesktop) {
+        if (isDesktopDevice()) {
             e.preventDefault();
             const recipient = "Kabelokgasago5@gmail.com";
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}`;
@@ -200,19 +204,65 @@ if (desktopEmailLink) {
     });
 }
 
-// ===== Modal Logic =====
+// ===== Modal Accessibility Helper =====
+const FOCUSABLE_SELECTOR =
+    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+function setupModalAccessibility(modalEl) {
+    if (!modalEl || modalEl.dataset.a11ySetup === "true") return;
+    modalEl.dataset.a11ySetup = "true";
+
+    modalEl.addEventListener("keydown", (e) => {
+        if (e.key !== "Tab") return;
+        const items = Array.from(modalEl.querySelectorAll(FOCUSABLE_SELECTOR))
+            .filter(el => el.offsetParent !== null);
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    });
+}
+
+function openModalEl(modalEl) {
+    if (!modalEl) return;
+    setupModalAccessibility(modalEl);
+    modalEl.classList.add("active");
+    modalEl.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    const closeBtn = modalEl.querySelector(".modal-close");
+    if (closeBtn) {
+        requestAnimationFrame(() => closeBtn.focus());
+    }
+}
+
+function closeModalEl(modalEl) {
+    if (!modalEl) return;
+    modalEl.classList.remove("active");
+    modalEl.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+}
+
+// ===== Project Modal =====
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalBody = document.getElementById("modal-body");
 
 function openModal(category) {
     if (!modal) return;
-    
-    const titleMap = { 
-        coding: "Coding Projects", 
-        editing: "Video Editing Projects", 
-        photoEditing: "Photo Editing Projects", 
-        motionGraphics: "Motion Graphics Projects", 
+
+    const titleMap = {
+        coding: "Coding Projects",
+        editing: "Video Editing Projects",
+        photoEditing: "Photo Editing Projects",
+        motionGraphics: "Motion Graphics Projects",
         blender3d: "3D Modelling Projects"
     };
 
@@ -237,19 +287,14 @@ function openModal(category) {
         }
     }
 
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
+    openModalEl(modal);
 }
 
 function closeModal() {
-    if (!modal) return;
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
+    closeModalEl(modal);
 }
 
-// Event Delegation for Project Box Clicks (Fixes inner h3 click issues)
+// Event delegation for project box clicks
 document.addEventListener("click", (e) => {
     const projectBox = e.target.closest(".project-box");
     if (projectBox) {
@@ -258,7 +303,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Event Delegation for Project Box Keyboard Access
+// Event delegation for keyboard activation
 document.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
         const projectBox = e.target.closest(".project-box");
@@ -270,7 +315,7 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Modal Close Listeners (Overlay click, 'X' button click, Escape Key)
+// Modal close listeners
 if (modal) {
     modal.addEventListener("click", (e) => {
         if (e.target.hasAttribute("data-close") || e.target.classList.contains("modal-overlay") || e.target.classList.contains("modal-close")) {
@@ -285,23 +330,17 @@ if (modal) {
     });
 }
 
-// CV Download Modal Logic
+// ===== CV Download Modal =====
 const cvModal = document.getElementById("cv-modal");
 const openCvBtn = document.getElementById("open-cv-modal-btn");
 const cvForm = document.getElementById("cv-download-form");
 
 function openCvModal() {
-    if (!cvModal) return;
-    cvModal.classList.add("active");
-    cvModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("modal-open");
+    openModalEl(cvModal);
 }
 
 function closeCvModal() {
-    if (!cvModal) return;
-    cvModal.classList.remove("active");
-    cvModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
+    closeModalEl(cvModal);
 }
 
 if (openCvBtn) {
@@ -310,9 +349,15 @@ if (openCvBtn) {
 
 if (cvModal) {
     cvModal.querySelectorAll("[data-close-cv]").forEach(el => el.addEventListener("click", closeCvModal));
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && cvModal.classList.contains("active")) {
+            closeCvModal();
+        }
+    });
 }
 
-// Handle CV Download & Email Notification
+// CV form: download PDF + open notification email
 if (cvForm) {
     cvForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -326,7 +371,7 @@ if (cvForm) {
             `User Email: ${userEmail}`
         );
 
-        // 1. Trigger the actual PDF Download in the browser
+        // 1. Trigger the PDF download in the browser
         const downloadLink = document.createElement("a");
         downloadLink.href = "Kabelo_Kgasago_CV.pdf";
         downloadLink.download = "Kabelo_Kgasago_CV.pdf";
@@ -334,22 +379,20 @@ if (cvForm) {
         downloadLink.click();
         document.body.removeChild(downloadLink);
 
-        // 2. Open Gmail compose window on Desktop or Mailto on Mobile to send notification
-        const isDesktop = window.innerWidth > 768 && !('ontouchstart' in window);
-        if (isDesktop) {
+        // 2. Open notification email
+        if (isDesktopDevice()) {
             const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
             window.open(gmailUrl, '_blank');
         } else {
             window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
         }
 
-        // Close Modal & Reset Form
         closeCvModal();
         cvForm.reset();
     });
 }
 
-// Scroll to Top Button
+// ===== Scroll to Top Button =====
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 if (scrollTopBtn) {
     window.addEventListener("scroll", () => {
@@ -364,7 +407,8 @@ if (scrollTopBtn) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
-// Copy Email & Toast Notification Handler
+
+// ===== Copy Email + Toast =====
 const copyEmailBtn = document.getElementById("copy-email-btn");
 const toast = document.getElementById("toast-notification");
 
@@ -376,13 +420,8 @@ if (copyEmailBtn && toast) {
         const emailText = "Kabelokgasago5@gmail.com";
 
         navigator.clipboard.writeText(emailText).then(() => {
-            // Show Toast Notification
             toast.classList.add("show");
-
-            // Hide Toast after 3 seconds
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 3000);
+            setTimeout(() => toast.classList.remove("show"), 3000);
         }).catch(err => {
             console.error("Failed to copy email: ", err);
         });
@@ -391,16 +430,14 @@ if (copyEmailBtn && toast) {
 
 // ===== Scroll Reveal Observer =====
 document.addEventListener("DOMContentLoaded", () => {
-    // Mark body as JS-enabled to safely trigger animation styles
     document.body.classList.add("js-enabled");
 
     const revealElements = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("active");
-                observer.unobserve(entry.target); // Animate once
+                observer.unobserve(entry.target);
             }
         });
     }, {
