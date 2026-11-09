@@ -26,7 +26,7 @@
             <a href="index.html#projects" class="anchorlinks">Projects</a>
             <a href="index.html#services" class="anchorlinks">Services</a>
             <a href="index.html#contact" class="anchorlinks">Contact Me</a>
-            <a href="Kabelo_Kgasago_CV.pdf" class="cv-download-btn" download>Download CV</a>
+            <button id="open-cv-modal-btn" class="cv-download-btn" aria-haspopup="dialog">Download CV</button>
         </nav>
     </header>
 
@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="project-details">Project Details & Requirements</label>
+                        <label for="project-details">Project Details &amp; Requirements</label>
                         <textarea id="project-details" rows="5" placeholder="Tell me about your project scope, deliverables, and preferred timeline..."></textarea>
                     </div>
 
@@ -89,6 +89,29 @@
     <footer class="footer">
         <p class="footertitle">&copy; 2026 Kabelo's Portfolio</p>
     </footer>
+
+    <!-- CV Request Email Modal -->
+    <div id="cv-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cv-modal-title">
+        <div class="modal-overlay" data-close-cv></div>
+        <div class="modal-content" style="max-width: 480px;">
+            <button class="modal-close" aria-label="Close modal" data-close-cv>&times;</button>
+            <h2 id="cv-modal-title" class="modal-title">Download CV</h2>
+            <p style="text-align: center; color: #cccccc; margin-bottom: 20px;">Enter your email to download my CV. A notification email will open — just click Send to let me know.</p>
+
+            <form id="cv-download-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="form-group">
+                    <label for="cv-user-email">Email Address *</label>
+                    <input type="email" id="cv-user-email" required placeholder="your.email@example.com">
+                </div>
+                <button type="submit" class="submit-btn">Download &amp; Send Notification</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top of page">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
